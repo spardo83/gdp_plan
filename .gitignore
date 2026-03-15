@@ -1,0 +1,27 @@
+# Editores y herramientas de IA
+.vscode
+.claude
+.gemini
+.cursor
+.agent
+
+# Variables de entorno
+.env
+.env.local
+.env.example
+.env.prod
+
+# macOS
+.DS_Store
+
+# Archivos temporales de compilación LaTeX
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.synctex\(busy\)
+*.toc

@@ -26,10 +26,18 @@
 %	DEFINE CUSTOM PLAN INFORMATION COMMANDS 
 %----------------------------------------------------------------------------------------
 %TODO Uniformizar el nombre de los comandos a camelCase
-\def\authorname{}
-\def\ttitle{}
-\newcommand*{\director}[1]{\def\supname{#1}}
-\newcommand*{\pertenenciaDirector}[1]{\def\pertesupname{#1}}
+\def\authorname{Lic. Sebastián Pardo}
+\def\ttitle{Control nutricional basado en IA}
+\newcommand*{\director}[1]{\def\supname{Dr. Facundo Lucianna}}
+\newcommand*{\pertenenciaDirector}[1]{\def\pertesupname{FIUBA}}
+% Valores por defecto para evitar comandos indefinidos
+\def\supname{Dr. Facundo Lucianna}
+\def\pertesupname{FIUBA} % TODO: verificar pertenencia institucional del director
+\def\cosupname{}
+\def\pertecosupname{}
+\def\clientename{-}
+\def\empclientename{-}
+\def\fechaFinalName{por definir}
 \newcommand*{\codirector}[1]{\def\cosupname{#1}}
 \newcommand*{\pertenenciaCoDirector}[1]{\def\pertecosupname{#1}}
 \newcommand*{\cliente}[1]{\def\clientename{#1}}

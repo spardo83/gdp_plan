@@ -5,32 +5,29 @@
 
 
 % El títulos de la memoria, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \ttitle
-\titulo{Título del proyecto} 
+\titulo{Control nutricional basado en IA} 
 
 % Nombre del posgrado, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \degreename
-\posgrado{Carrera de Especialización en Sistemas Embebidos} 
-%\posgrado{Carrera de Especialización en Internet de las Cosas} 
-%\posgrado{Carrera de Especialización en Inteligencia Artificial}
-%\posgrado{Maestría en Sistemas Embebidos} 
-%\posgrado{Maestría en Internet de las cosas}
+\posgrado{Carrera de Especialización en Inteligencia Artificial}
 
 % Tu nombre, se puede usar el cualquier lugar del documento con el comando \authorname
 % IMPORTANTE: no omitir titulaciones ni tildación en los nombres, también se recomienda escribir los nombres completos (tal cual los tienen en su documento)
-\autor{Título y Nombre del autor}
+% Nombre y director definidos directamente en charter.cls para evitar referencias circulares
+%\autor{\authorname}
 
 % El nombre del director y co-director, se puede usar el cualquier lugar del documento con el comando \supname y \cosupname y \pertesupname y \pertecosupname
-\director{Título y Nombre del director}
-\pertenenciaDirector{pertenencia} 
-\codirector{} % para que aparezca en la portada se debe descomentar la opción codirector en los parámetros de documentclass
-\pertenenciaCoDirector{FIUBA}
+%\director{\supname}
+%\pertenenciaDirector{pertenencia}
+%\codirector{\cosupname} % para que aparezca en la portada se debe descomentar la opción codirector en los parámetros de documentclass
+%\pertenenciaCoDirector{FIUBA}
 
 % Nombre del cliente, quien va a aprobar los resultados del proyecto, se puede usar con el comando \clientename y \empclientename
-\cliente{Nombre del cliente}
-\empresaCliente{Empresa del cliente}
+%\cliente{Nombre del cliente}
+%\empresaCliente{Empresa del cliente}
  
-\fechaINICIO{30 de abril de 2023}		%Fecha de inicio de la cursada de GdP \fechaInicioName
-\fechaFINALPlan{18 de junio de 2023} 	%Fecha de final de cursada de GdP
-\fechaFINALTrabajo{15 de mayo de 2024}	%Fecha de defensa pública del trabajo final
+\fechaINICIO{3 de marzo de 2026}		%Fecha de inicio de la cursada de GdP \fechaInicioName
+\fechaFINALPlan{21 de abril de 2026} 	%Fecha de final de cursada de GdP
+% \fechaFINALTrabajo{15 de mayo de 2024}	%Fecha de defensa pública del trabajo final
 
 
 \begin{document}
@@ -59,7 +56,7 @@
 \rowcolor[HTML]{C0C0C0} 
 Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios realizados} & Fecha      \\ \hline
 0      & Creación del documento                                 &\fechaInicioName \\ \hline
-%1      & Se completa hasta el punto 5 inclusive                & {día} de {mes} de 202X \\ \hline
+1      & Se completa hasta el punto 5 inclusive                & 15 de marzo de 2026 \\ \hline
 %2      & Se completa hasta el punto 9 inclusive
 %		  Se puede agregar algo más \newline
 %		  En distintas líneas \newline
@@ -85,7 +82,7 @@ Buenos Aires, \fechaInicioName
 
 \vspace{2cm}
 
-Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'' y consistirá en \textcolor{red}{la implementación de un prototipo de un sistema de control de temperatura de una caldera industrial}. El trabajo tendrá un presupuesto preliminar estimado de \textcolor{red}{600} horas y un costo estimado de \textcolor{red}{\$ XXX}, con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública el \fechaFinalName.
+Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'' y consistirá en el desarrollo de un prototipo de aplicación móvil que utiliza visión por computadora e inteligencia artificial para analizar fotografías de alimentos, identificar sus componentes, estimar porciones y generar registros nutricionales automáticos. El trabajo tendrá un presupuesto preliminar estimado de 600 horas y un costo estimado de \textcolor{red}{\$ XXX}, con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública el \fechaFinalName.
 
 Se adjunta a esta acta la planificación inicial.
 
@@ -106,144 +103,98 @@ Se adjunta a esta acta la planificación inicial.
 \section{1. Descripción técnica-conceptual del proyecto a realizar}
 \label{sec:descripcion}
 
-\begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
-El objetivo es que el lector, en una o dos páginas, exponga de qué se trata el proyecto y cuáles son sus desafíos, cuál es la motivación para realizarlo y su importancia.
+El seguimiento nutricional es una herramienta fundamental en el tratamiento de enfermedades metabólicas, obesidad y otros trastornos relacionados con la alimentación. Sin embargo, los métodos tradicionales, como el diario de comidas manual, recordatorio de 24 horas o cuestionario de frecuencia alimentaria— presentan limitaciones bien documentadas: subestimación sistemática de la ingesta calórica, sesgo de reporte asociado al peso corporal, y baja adherencia sostenida en el tiempo. Estudios de revisión sistemática concluyen que todos estos instrumentos tienen sesgos inherentes que comprometen su validez clínica~\cite{dahl2020traditional}. En intervenciones de pérdida de peso basadas en aplicaciones móviles, la adherencia al registro cae por debajo del 50\% de los participantes ya en la semana 10~\cite{lyzwinski2019adherence}, y el tiempo requerido para el registro alcanza aproximadamente 23 minutos diarios durante el primer mes~\cite{vitale2022burden}.
 
-Se debe introducir el contexto del proyecto, el estado del arte en la temática, describir la propuesta de valor, cuál es el problema que atiende y cuál es la solución que se propone. Se debe dar una descripción funcional de la solución que incluya un diagrama en bloques.
+Aplicaciones como MyFitnessPal, Cronometer o Noom han digitalizado parcialmente el proceso, pero siguen dependiendo del ingreso manual de alimentos mediante búsqueda en base de datos, lo que conserva la mayor parte de la fricción original. El reconocimiento automático de alimentos a partir de imágenes representa una alternativa de mayor potencial. Desde el trabajo pionero de Myers et al.~\cite{myers2015im2calories} (Im2Calories, Google, ICCV 2015), que demostró la factibilidad de estimar calorías a partir de una fotografía tomada con un teléfono, el campo ha avanzado considerablemente. Modelos basados en redes convolucionales (CNN) como DeepFood~\cite{liu2016deepfood} alcanzaron un 77,4\% de exactitud \textit{top-1} en Food-101, el conjunto de datos de referencia más utilizado (101.000 imágenes, 101 categorías). Con la adopción de Vision Transformers (ViT) y técnicas de aumento de datos, los modelos recientes superan el 91\% en el mismo benchmark~\cite{mdpi2025review}, y arquitecturas como NoisyViT reportan hasta 99,5\% en condiciones de laboratorio.
 
-Puede ser útil incluir en esta sección la respuesta a alguna de estas preguntas:
+No obstante, existe una brecha significativa entre el desempeño en benchmarks controlados y el rendimiento en entornos reales. La validación clínica de la aplicación CALO mama~\cite{nakamura2022calomama} mostró que el sistema estimaba correctamente solo 11 de 30 nutrientes evaluados; y un análisis comparativo de 18 aplicaciones comerciales~\cite{nutrients2024review} encontró que los sistemas de IA subestiman sistemáticamente platos de cocinas no occidentales. Dos desafíos técnicos dominan el estado del arte: la \textbf{ambigüedad de escala} en imágenes monoculares —sin referencia física no es posible determinar el tamaño real del plato— y la \textbf{oclusión} en preparaciones mixtas. Los errores en la estimación de volumen de porciones oscilan entre el 10\% y el 33\% de error relativo~\cite{martinezgarcia2023}. Trabajos recientes como MFP3D~\cite{mfp3d2024} abordan este problema mediante reconstrucción de nubes de puntos 3D a partir de imágenes monoculares, mientras que DietAI24~\cite{dietai24_2025} propone integrar modelos de lenguaje multimodal con bases de datos nutricionales para estimar hasta 65 nutrientes desde fotografías.
 
-\begin{itemize}
-	\item ¿Cuál es el contexto del proyecto, es un emprendimiento personal, un proyecto para una empresa, es parte del programa de vinculación con empresas del posgrado?
-	\item ¿Existen o aplican condiciones especiales al proyecto, financiamiento de algún programa público o privado, acuerdos de confidencialidad, acuerdos sobre la propiedad intelectual de los entregables u otros?
-	\item ¿Cómo se compara la solución propuesta con el estado del arte en el campo de aplicación? ¿En qué aspectos destaca?
-	\item ¿Ayuda a la explicación si se incluye un lienzo Canvas del Modelo de Negocio?
-	\item ¿En qué estado del ciclo de vida está la solución que se propone?
-	\item ¿Cuáles son las características del cliente (el adoptante de los entregables del proyecto) qué valora, qué necesita?
-	\item ¿Por dónde pasa la innovación?
-\end{itemize}
+Este proyecto propone el desarrollo de un prototipo de aplicación móvil que utiliza visión por computadora e inteligencia artificial para analizar imágenes de platos de comida, identificar sus componentes, estimar porciones e integrar los datos nutricionales de forma automática. La solución está orientada a dos perfiles complementarios: el paciente en seguimiento nutricional, que obtiene un registro preciso con mínimo esfuerzo; y el profesional de la nutrición, que accede a datos objetivos para orientar el tratamiento. Se trata de un proyecto personal enmarcado en la Carrera de Especialización en Inteligencia Artificial de la FIUBA, sin vinculación empresarial ni financiamiento externo. El prototipo se ubica en una etapa temprana del ciclo de vida, con foco en validar la factibilidad técnica del enfoque propuesto para el contexto local.
 
-La descripción técnica-conceptual \textbf{debe incluir al menos un diagrama en bloques del sistema} y descripción funcional de la solución propuesta.
-
-Las figuras se deben mencionar en el texto ANTES de que aparezcan con una frase como la siguiente: ``En la figura \ref{fig:diagBloques} se presenta el diagrama en bloques del sistema. Se observa que...''.  La regla es que las figuras nunca pueden ir antes de ser mencionadas en el texto, porque sino el lector no entiende por qué de pronto aparece una figura.
+En la figura \ref{fig:diagBloques} se presenta el diagrama en bloques del sistema. El flujo comienza con la captura de una fotografía por parte del usuario a través de la aplicación móvil. La imagen es procesada por un módulo de visión por computadora que detecta e identifica los componentes alimentarios presentes en el plato. Un módulo de estimación de porciones infiere las cantidades a partir de referencias visuales. Con esos datos se consulta una base de datos nutricional para obtener los macronutrientes correspondientes —calorías, proteínas, grasas y carbohidratos— y se genera un registro dietético disponible para el paciente y, en etapas futuras, para el profesional tratante.
 
 \begin{figure}[htpb]
-\centering 
+\centering
 \includegraphics[width=.65\textwidth]{./Figuras/diagBloques.png}
 \caption{Diagrama en bloques del sistema.}
 \label{fig:diagBloques}
 \end{figure}
 
-\vspace{25px}
-
-El tamaño del texto en TODAS las figuras debe ser adecuado \textbf{para que NO pase lo que ocurre en la figura \ref{fig:diagBloques}}, donde el lector debe esforzarse para poder leer el texto. 
-
-Los colores usados en el diagrama deben ser adecuados, tal que ayuden a comprender mejor el diagrama. Se recomienda evitar colores primarios (como rojo, verde o cyan) y usar la gama de colores pastel.
-
-\end{consigna} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
-
 \section{2. Identificación y análisis de los interesados}
 \label{sec:interesados}
 
-\begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
-\textbf{Nota importante:} borrar esto y todas las consignas en color rojo antes de entregar este documento). Esto se hace eliminando el par de comandos que forman el bloque consigna, \verb!\begin{consigna}{red}! y \verb!\end{consigna}{red}! del código. 
- 
-Es inusual que una misma persona esté en más de un rol, incluso en proyectos chicos. Si se considera que una persona cumple dos o más roles, entonces \textbf{solo dejarla en el rol más importante}. 
-
-Por ejemplo, si una persona es Cliente pero también colabora u orienta, dejarla solo como Cliente. Si una persona es el Responsable, \textbf{no debe ser colocado también como miembro del equipo}.
-
-
 \begin{table}[ht]
-%\caption{Identificación de los interesados}
-%\label{tab:interesados}
 \begin{tabularx}{\linewidth}{@{}|l|X|X|l|@{}}
 \hline
-\rowcolor[HTML]{C0C0C0} 
-Rol           & Nombre y Apellido & Organización 	& Puesto 	\\ \hline
-Auspiciante   &                   &              	&        	\\ \hline
-Cliente       & \clientename      &\empclientename	&        	\\ \hline
-Impulsor      &                   &              	&        	\\ \hline
-Responsable   & \authorname       & FIUBA        	& Alumno 	\\ \hline
-Colaboradores &                   &              	&        	\\ \hline
-Orientador    & \supname	      & \pertesupname 	& Director del Trabajo Final \\ \hline
-Equipo        & miembro1 \newline 
-				miembro2          &              	&        	\\ \hline
-Opositores    &                   &              	&        	\\ \hline
-Usuario final &                   &              	&        	\\ \hline
+\rowcolor[HTML]{C0C0C0}
+Rol           & Nombre y Apellido                                                  & Organización                          & Puesto                      \\ \hline
+Responsable   & \authorname                                                        & Independiente                         & Alumno CEIA--FIUBA           \\ \hline
+Orientador    & \supname                                                           & \pertesupname                         & Director del Trabajo Final  \\ \hline
+Usuario final & Personas en seguimiento nutricional                                & -                                     & -                           \\ \hline
+Interesado    & Licenciados en Nutrición y Dietistas \newline (AADYND / AALeN)     & Asoc. Argentina de Dietistas y Lic. en Nutrición & -              \\ \hline
+Interesado    & Profesionales de Diabetología                                      & Sociedad Argentina de Diabetes (SAD)  & -                           \\ \hline
+Interesado    & Profesionales de Obesidad y Trastornos Alimentarios                & Soc. Argentina de Obesidad y Trast. Alimentarios (SAOTA) & - \\ \hline
+Opositor      & Aplicaciones de registro nutricional manual                        & MyFitnessPal, Cronometer, entre otras & -                           \\ \hline
 \end{tabularx}
 \end{table}
 
-El Director suele ser uno de los orientadores.
-
-No dejar celdas vacías; si no hay nada que poner en una celda colocar un signo ``-''.
-
-No dejar filas vacías; si no hay nada que poner en una fila entonces eliminarla.
-
-Es deseable listar a continuación las principales características de cada interesado.
- 
-Por ejemplo:
 \begin{itemize}
-	\item Orientador: la Dra. Ing. María Gómez es experta en la temática y va a ayudar con la definición de los requerimientos y el desarrollo del firmware del embebido.
-	\item Auspiciante: es riguroso y exigente con la rendición de gastos. Tener mucho cuidado con esto.
-	\item Equipo: Juan Perez, suele pedir licencia porque tiene un familiar con una enfermedad. Planificar considerando esto.
+	\item Responsable: \authorname{} es el único miembro del equipo de desarrollo. Gestiona, diseña e implementa el sistema en el marco de la Carrera de Especialización en Inteligencia Artificial de la FIUBA, como profesional independiente sin vinculación institucional.
+	\item Orientador: El \supname{} orienta la definición de los requerimientos del sistema, la selección de enfoques técnicos y la evaluación de los resultados del Trabajo Final.
+	\item Usuario final: personas que siguen un plan nutricional y necesitan registrar su ingesta alimentaria de manera precisa y sin fricción. Es el beneficiario primario de la solución.
+	\item Interesado (AADYND / AALeN): la Asociación Argentina de Dietistas y Licenciados en Nutrición agrupa a los profesionales que podrían adoptar la herramienta como complemento en sus prácticas clínicas, o participar en la validación de los registros nutricionales generados.
+	\item Interesado (SAD): la Sociedad Argentina de Diabetes representa a profesionales y pacientes para quienes el control dietético es crítico en el manejo de la enfermedad. Constituye un potencial adoptante institucional en fases avanzadas del producto.
+	\item Interesado (SAOTA): la Sociedad Argentina de Obesidad y Trastornos Alimentarios es el nexo entre profesionales y pacientes en el tratamiento de la obesidad, condición en la que el monitoreo calórico es un componente central del protocolo terapéutico. Podría actuar como validador clínico del sistema.
+	\item Opositor: las aplicaciones de registro manual existentes (MyFitnessPal, Cronometer) tienen bases de usuarios establecidas y podrían representar resistencia al cambio, tanto por parte de los usuarios como de los profesionales que ya las recomiendan en sus consultas.
 \end{itemize}
-
-\end{consigna} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
 
 
 \section{3. Propósito del proyecto}
 \label{sec:proposito}
 
-\begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
-
-¿Por qué se hace el proyecto? ¿Qué se quiere lograr? 
-
-Se recomienda que sea solo un párrafo que continúe con la idea de la frase ``el propósito de este proyecto es...'' (omitir la frase, ya que está en el título de la sección).
-\end{consigna}
+Facilitar el registro nutricional preciso y de baja fricción mediante inteligencia artificial y visión por computadora, reduciendo la carga cognitiva que representa el seguimiento manual para el paciente y proveyendo a los profesionales de la salud información objetiva que mejore la calidad del acompañamiento dietético.
 
 \section{4. Alcance del proyecto}
 \label{sec:alcance}
 
-\begin{consigna}{red}
-¿Qué se incluye y que no se incluye en este proyecto?
-
-Se refiere al trabajo que se va a hacer para entregar el producto o resultado especificado. 
-
-Explicitar todo lo quede comprendido dentro del alcance del proyecto. Por ejemplo:
-
 El proyecto incluye:
+
 \begin{itemize}
-	\item Ítem 1.
-	\item Ítem 2.
-		\begin{itemize}
-		\item Subítem 1.
-		\item Subítem 2.
-		\item ...
-		\end{itemize}
-	\item ...
-	
+	\item Relevamiento del estado del arte en reconocimiento de alimentos y estimación de porciones mediante visión por computadora.
+	\item Recolección y preparación de un conjunto de datos de imágenes de alimentos etiquetado, adecuado para el entrenamiento y evaluación de los modelos.
+	\item Desarrollo y entrenamiento de un modelo de visión por computadora para la detección e identificación de componentes alimentarios en fotografías.
+	\item Desarrollo de un módulo de estimación de porciones a partir de imágenes.
+	\item Integración con una base de datos nutricional de acceso público para la consulta de macronutrientes (calorías, proteínas, grasas y carbohidratos).
+	\item Desarrollo de un prototipo de aplicación móvil que integre los módulos anteriores, permitiendo al usuario fotografiar su comida y obtener un registro nutricional automático.
+	\item Documentación técnica del sistema y memoria del Trabajo Final.
 \end{itemize}
 
-Explicitar además todo lo que no quede incluido (``El presente proyecto no incluye...'')
+El presente proyecto no incluye:
 
-\end{consigna} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
+\begin{itemize}
+	\item El despliegue en producción ni la publicación en tiendas de aplicaciones (App Store o Google Play).
+	\item El desarrollo de funcionalidades específicas para profesionales de la nutrición (portal clínico, prescripción de dietas, gestión de pacientes).
+	\item La integración con sistemas de gestión clínica (HIS/EHR).
+	\item El soporte multilingüe; el sistema operará exclusivamente en español.
+	\item El desarrollo de un modelo de negocio o funcionalidades de monetización.
+	\item La evaluación clínica formal con pacientes reales.
+\end{itemize}
 
 
 \section{5. Supuestos del proyecto}
 \label{sec:supuestos}
 
-\begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
-``Para el desarrollo del presente proyecto se supone que: ...''
+Para el desarrollo del presente proyecto se supone que:
 
 \begin{itemize}
-	\item Supuesto 1.
-	\item Supuesto 2.
-	\item ...
+	\item El alumno dispondrá de al menos 15 horas semanales para dedicar al proyecto durante su desarrollo.
+	\item Es técnicamente posible estimar porciones de alimentos a partir de imágenes monoculares con un margen de error aceptable para uso en seguimiento nutricional no clínico.
+	\item Los \textit{datasets} públicos de imágenes de alimentos disponibles (como Food-101 u Open Images) son suficientemente representativos de los alimentos del contexto local para entrenar modelos con precisión aceptable.
+	\item Las bases de datos nutricionales de acceso público (como USDA FoodData Central u Open Food Facts) contienen datos suficientes para cubrir los alimentos más comunes de la dieta argentina.
+	\item El hardware disponible —computadora personal con GPU o acceso a plataformas de cómputo en la nube como Google Colab— será suficiente para el entrenamiento de los modelos requeridos.
+	\item Los usuarios finales disponen de un \textit{smartphone} con cámara de resolución adecuada y acceso a internet.
+	\item El prototipo no requerirá aprobaciones regulatorias durante la etapa de investigación académica.
 \end{itemize}
-
-Por ejemplo, se podrían incluir supuestos respecto a disponibilidad de tiempo y recursos humanos y materiales, sobre la factibilidad técnica de distintos aspectos del proyecto, sobre otras cuestiones que sean necesarias para el éxito del proyecto como condiciones macroeconómicas o reglamentarias.
-
-\end{consigna} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
 
 \section{6. Requerimientos}
 \label{sec:requerimientos}
@@ -649,5 +600,9 @@ Establecer las pautas de trabajo para realizar una reunión final de evaluación
 \end{itemize}
 
 \end{consigna}
+
+\newpage
+\bibliographystyle{ieeetr}
+\bibliography{references}
 
 \end{document}
