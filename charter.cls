@@ -37,7 +37,7 @@
 \def\pertecosupname{}
 \def\clientename{-}
 \def\empclientename{-}
-\def\fechaFinalName{por definir}
+\def\fechaFinalName{diciembre 2026}
 \newcommand*{\codirector}[1]{\def\cosupname{#1}}
 \newcommand*{\pertenenciaCoDirector}[1]{\def\pertecosupname{#1}}
 \newcommand*{\cliente}[1]{\def\clientename{#1}}
