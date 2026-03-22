@@ -57,10 +57,7 @@
 Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios realizados} & Fecha      \\ \hline
 0      & Creación del documento                                 &\fechaInicioName \\ \hline
 1      & Se completa hasta el punto 5 inclusive                & 15 de marzo de 2026 \\ \hline
-%2      & Se completa hasta el punto 9 inclusive
-%		  Se puede agregar algo más \newline
-%		  En distintas líneas \newline
-%		  Así                                                    & {día} de {mes} de 202X \\ \hline
+2      & Se completa hasta el punto 9 inclusive                & 18 de marzo de 2026 \\ \hline
 %3      & Se completa hasta el punto 12 inclusive                & {día} de {mes} de 202X \\ \hline
 %4      & Se completa el plan	                                 & {día} de {mes} de 202X \\ \hline
 
@@ -103,7 +100,7 @@ Se adjunta a esta acta la planificación inicial.
 \section{1. Descripción técnica-conceptual del proyecto a realizar}
 \label{sec:descripcion}
 
-El seguimiento nutricional es una herramienta fundamental en el tratamiento de enfermedades metabólicas, obesidad y otros trastornos relacionados con la alimentación. Sin embargo, los métodos tradicionales, como el diario de comidas manual, recordatorio de 24 horas o cuestionario de frecuencia alimentaria— presentan limitaciones bien documentadas: subestimación sistemática de la ingesta calórica, sesgo de reporte asociado al peso corporal, y baja adherencia sostenida en el tiempo. Estudios de revisión sistemática concluyen que todos estos instrumentos tienen sesgos inherentes que comprometen su validez clínica~\cite{dahl2020traditional}. En intervenciones de pérdida de peso basadas en aplicaciones móviles, la adherencia al registro cae por debajo del 50\% de los participantes ya en la semana 10~\cite{lyzwinski2019adherence}, y el tiempo requerido para el registro alcanza aproximadamente 23 minutos diarios durante el primer mes~\cite{vitale2022burden}.
+El seguimiento nutricional es una herramienta fundamental en el tratamiento de enfermedades metabólicas, obesidad y otros trastornos relacionados con la alimentación. Sin embargo, los métodos tradicionales, como el diario de comidas manual, recordatorio de 24 horas o cuestionario de frecuencia alimentaria— presentan limitaciones bien documentadas: subestimación sistemática de la ingesta calórica, sesgo de reporte asociado al peso corporal y baja adherencia sostenida en el tiempo. Estudios de revisión sistemática concluyen que todos estos instrumentos tienen sesgos inherentes que comprometen su validez clínica~\cite{dahl2020traditional}. En intervenciones de pérdida de peso basadas en aplicaciones móviles, la adherencia al registro cae por debajo del 50\% de los participantes ya en la semana 10~\cite{lyzwinski2019adherence}, y el tiempo requerido para el registro alcanza aproximadamente 23 minutos diarios durante el primer mes~\cite{vitale2022burden}.
 
 Aplicaciones como MyFitnessPal, Cronometer o Noom han digitalizado parcialmente el proceso, pero siguen dependiendo del ingreso manual de alimentos mediante búsqueda en base de datos, lo que conserva la mayor parte de la fricción original. El reconocimiento automático de alimentos a partir de imágenes representa una alternativa de mayor potencial. Desde el trabajo pionero de Myers et al.~\cite{myers2015im2calories} (Im2Calories, Google, ICCV 2015), que demostró la factibilidad de estimar calorías a partir de una fotografía tomada con un teléfono, el campo ha avanzado considerablemente. Modelos basados en redes convolucionales (CNN) como DeepFood~\cite{liu2016deepfood} alcanzaron un 77,4\% de exactitud \textit{top-1} en Food-101, el conjunto de datos de referencia más utilizado (101.000 imágenes, 101 categorías). Con la adopción de Vision Transformers (ViT) y técnicas de aumento de datos, los modelos recientes superan el 91\% en el mismo benchmark~\cite{mdpi2025review}, y arquitecturas como NoisyViT reportan hasta 99,5\% en condiciones de laboratorio.
 
@@ -199,110 +196,145 @@ Para el desarrollo del presente proyecto se supone que:
 \section{6. Requerimientos}
 \label{sec:requerimientos}
 
-\begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
-Los requerimientos deben enumerarse y de ser posible estar agrupados por afinidad, por ejemplo:
-
 \begin{enumerate}
 	\item Requerimientos funcionales:
 		\begin{enumerate}
-			\item El sistema debe...
-			\item Tal componente debe...
-			\item El usuario debe poder...
+			\item[RF1] La app debe permitir al usuario capturar o seleccionar una fotografía de su comida.
+			\item[RF2] El módulo de visión por computadora debe identificar al menos 5 componentes alimentarios distintos en una misma imagen.
+			\item[RF3] El modelo de CV debe alcanzar una exactitud \textit{top-1} $\geq$ 75\,\% sobre el conjunto de prueba de imágenes de alimentos locales.
+			\item[RF4] El módulo de estimación de porciones debe estimar cantidades con un error relativo medio $\leq$ 30\,\% sobre el conjunto de prueba.
+			\item[RF5] El sistema debe consultar una base de datos nutricional pública (USDA FoodData Central u Open Food Facts) para obtener los macronutrientes de cada alimento identificado.
+			\item[RF6] El sistema debe generar y mostrar un resumen nutricional (calorías, proteínas, grasas y carbohidratos) por comida registrada.
+			\item[RF7] El usuario debe poder consultar su historial nutricional de al menos los últimos 7 días.
+			\item[RF8] El usuario debe poder corregir los alimentos identificados por el sistema en caso de reconocimiento incorrecto.
+			\item[RF9] La aplicación debe operar exclusivamente en español.
+			\item[RF10] El pipeline completo desde la captura de la foto hasta la visualización del resultado nutricional debe completarse en $\leq$ 30 s.
 		\end{enumerate}
 	\item Requerimientos de documentación:
 		\begin{enumerate}
-			\item Requerimiento 1.
-			\item Requerimiento 2 (prioridad menor)
+			\item[RD1] La memoria del Trabajo Final debe seguir las pautas de formato de la CEIA-FIUBA.
+			\item[RD2] El repositorio de código fuente debe incluir un README con instrucciones de instalación y uso.
+			\item[RD3] El modelo de CV debe documentarse con su arquitectura, procedimiento de entrenamiento y métricas de evaluación obtenidas.
 		\end{enumerate}
-	\item Requerimiento de testing...
-	\item Requerimientos de la interfaz...
-	\item Requerimientos interoperabilidad...
-	\item etc...
+	\item Requerimientos de testing:
+		\begin{enumerate}
+			\item[RT1] El modelo de CV debe evaluarse sobre un conjunto de prueba representativo de alimentos del contexto local.
+			\item[RT2] El módulo de estimación de porciones debe probarse con al menos 20 imágenes de referencia.
+			\item[RT3] El prototipo móvil debe ejecutarse correctamente en al menos un dispositivo iOS físico o simulador.
+		\end{enumerate}
+	\item Requerimientos de interfaz:
+		\begin{enumerate}
+			\item[RI1] La app debe ejecutarse en iOS 15 o posterior.
+			\item[RI2] La captura o selección de la foto del plato debe requerir $\leq$ 3 interacciones del usuario.
+			\item[RI3] El resultado nutricional debe mostrarse en la misma sesión de pantalla que la captura fotográfica.
+		\end{enumerate}
+	\item Requerimientos de interoperabilidad:
+		\begin{enumerate}
+			\item[RIO1] El módulo de consulta nutricional debe integrarse con al menos una base de datos nutricional pública mediante API o dataset local.
+		\end{enumerate}
 \end{enumerate}
-
-Leyendo los requerimientos se debe poder interpretar cómo será el proyecto y su funcionalidad.
-
-Indicar claramente cuál es la prioridad entre los distintos requerimientos y si hay requerimientos opcionales. 
-
-\textbf{¡¡¡No olvidarse de que los requerimientos incluyen a las regulaciones y normas vigentes!!!}
-
-Y al escribirlos seguir las siguientes reglas:
-\begin{itemize}
-	\item Ser breve y conciso (nadie lee cosas largas). 
-	\item Ser específico: no dejar lugar a confusiones.
-	\item Expresar los requerimientos en términos que sean cuantificables y medibles.
-\end{itemize}
-
-\end{consigna} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
 
 \section{7. Historias de usuarios (\textit{Product backlog})}
 \label{sec:backlog}
 
-\begin{consigna}{red}
-Descripción: en esta sección se deben incluir las historias de usuarios y su ponderación (\textit{history points}). Recordar que las historias de usuarios son descripciones cortas y simples de una característica contada desde la perspectiva de la persona que desea la nueva capacidad, generalmente un usuario o cliente del sistema. La ponderación es un número entero que representa el tamaño de la historia comparada con otras historias de similar tipo.
+El criterio para calcular los \textit{story points} es: SP = complejidad (1--5) + dificultad (1--5) + incertidumbre (1--5), con un máximo posible de 15 puntos.
 
-Se debe indicar explícitamente el criterio para calcular los \textit{story points} de cada historia.
-
-El formato propuesto es: 
 \begin{enumerate}
-\item ``Como [rol] quiero [tal cosa] para [tal otra cosa]."
+\item ``Como persona en seguimiento nutricional, quiero fotografiar mi comida y obtener automáticamente su contenido nutricional, para registrar mi ingesta sin necesidad de búsqueda manual."
 
-\textit{Story points}: 8 (complejidad: 3, dificultad: 2, incertidumbre: 3)
+\textit{Story points}: 13 (complejidad: 5, dificultad: 4, incertidumbre: 4)
+
+\item ``Como persona en seguimiento nutricional, quiero ver los macronutrientes de cada comida registrada, para monitorear si estoy cumpliendo mi plan dietético."
+
+\textit{Story points}: 3 (complejidad: 1, dificultad: 1, incertidumbre: 1)
+
+\item ``Como persona en seguimiento nutricional, quiero consultar mi historial nutricional de los últimos 7 días, para hacer seguimiento de mi progreso a lo largo del tiempo."
+
+\textit{Story points}: 4 (complejidad: 2, dificultad: 1, incertidumbre: 1)
+
+\item ``Como persona en seguimiento nutricional, quiero poder corregir los alimentos identificados por el sistema cuando el reconocimiento sea incorrecto, para asegurar la exactitud de mis registros."
+
+\textit{Story points}: 6 (complejidad: 2, dificultad: 2, incertidumbre: 2)
+
+\item ``Como investigador/desarrollador, quiero evaluar la precisión del modelo con imágenes de comidas locales, para validar que el sistema sea adecuado para el contexto dietético argentino."
+
+\textit{Story points}: 8 (complejidad: 3, dificultad: 3, incertidumbre: 2)
 \end{enumerate}
-\end{consigna}
 
 \section{8. Entregables principales del proyecto}
 \label{sec:entregables}
 
-\begin{consigna}{red}
-Los entregables del proyecto son (ejemplo):
+Los entregables del proyecto son:
 
-\begin{itemize}
-	\item Manual de usuario.
-	\item Diagrama de circuitos esquemáticos.
-	\item Código fuente del firmware.
-	\item Diagrama de instalación.
-	\item Memoria del trabajo final.
-	\item etc...
-\end{itemize}
-\end{consigna}
+\begin{enumerate}
+	\item Modelo de CV entrenado para identificación de alimentos (pesos del modelo y métricas de evaluación).
+	\item Módulo de estimación de porciones (código fuente y métricas de evaluación).
+	\item Prototipo de aplicación móvil iOS funcional.
+	\item Dataset de imágenes de alimentos etiquetado, utilizado para entrenamiento y evaluación.
+	\item Capa de integración con base de datos nutricional (código fuente).
+	\item Memoria del Trabajo Final (documento en formato CEIA-FIUBA).
+	\item Repositorio de código fuente versionado con README e instrucciones de uso.
+\end{enumerate}
 
 \section{9. Desglose del trabajo en tareas}
 \label{sec:wbs}
 
-\begin{consigna}{red}
-El WBS debe tener relación directa o indirecta con los requerimientos.  Son todas las actividades que se harán en el proyecto para dar cumplimiento a los requerimientos. Se recomienda mostrar el WBS mediante una lista indexada:
-
 \begin{enumerate}
-\item Grupo de tareas 1 (suma h)
+\item Gestión del proyecto (30 h)
 	\begin{enumerate}
-	\item Tarea 1 (tantas h)
-	\item Tarea 2 (tantas h)
-	\item Tarea 3 (tantas h)
+	\item Planificación inicial y Plan de Proyecto --- GdP (20 h)
+	\item Seguimiento y control periódico (10 h)
 	\end{enumerate}
-\item Grupo de tareas 2 (suma h)
+\item Investigación y estado del arte (60 h)
 	\begin{enumerate}
-	\item Tarea 1 (tantas h)
-	\item Tarea 2 (tantas h)
-	\item Tarea 3 (tantas h)
+	\item Revisión bibliográfica de reconocimiento de alimentos con CV (25 h)
+	\item Revisión bibliográfica de estimación de porciones monoculares (20 h)
+	\item Análisis y selección de datasets y herramientas (15 h)
 	\end{enumerate}
-\item Grupo de tareas 3 (suma h)
+\item Datos: recolección y preparación (80 h)
 	\begin{enumerate}
-	\item Tarea 1 (tantas h)
-	\item Tarea 2 (tantas h)
-	\item Tarea 3 (tantas h)
-	\item Tarea 4 (tantas h)
-	\item Tarea 5 (tantas h)
+	\item Descarga y análisis de datasets públicos (Food-101, Open Images) (20 h)
+	\item Limpieza y filtrado de datos (15 h)
+	\item Recolección y anotación de imágenes locales (30 h)
+	\item Desarrollo del pipeline de preprocesamiento (15 h)
+	\end{enumerate}
+\item Modelo de reconocimiento de alimentos (130 h)
+	\begin{enumerate}
+	\item Selección y configuración del modelo base (ViT / CNN) (20 h)
+	\item Entrenamiento inicial --- \textit{fine-tuning} sobre dataset base (30 h)
+	\item Evaluación del modelo (métricas \textit{top-1}, \textit{top-5}) (20 h)
+	\item Iteraciones de mejora y ajuste de hiperparámetros (40 h)
+	\item Documentación técnica del modelo (20 h)
+	\end{enumerate}
+\item Módulo de estimación de porciones (100 h)
+	\begin{enumerate}
+	\item Investigación de técnicas de estimación de volumen monocular (20 h)
+	\item Implementación del módulo de estimación (40 h)
+	\item Evaluación del módulo (error relativo sobre set de prueba) (20 h)
+	\item Integración con el módulo de reconocimiento (20 h)
+	\end{enumerate}
+\item Integración con base de datos nutricional (50 h)
+	\begin{enumerate}
+	\item Evaluación de bases de datos disponibles (USDA, Open Food Facts) (15 h)
+	\item Desarrollo de la capa de consulta/wrapper (20 h)
+	\item Mapeo y validación de alimentos a entradas de la BD (15 h)
+	\end{enumerate}
+\item Aplicación móvil iOS (100 h)
+	\begin{enumerate}
+	\item Diseño de la interfaz de usuario (wireframes y flujo de navegación) (20 h)
+	\item Desarrollo del frontend iOS (SwiftUI o React Native) (40 h)
+	\item Integración del backend de IA con la app (25 h)
+	\item Pruebas de integración y correcciones (15 h)
+	\end{enumerate}
+\item Documentación y memoria del Trabajo Final (50 h)
+	\begin{enumerate}
+	\item Redacción de la memoria (versión 1) (20 h)
+	\item Revisión y corrección con el director (versión 2) (15 h)
+	\item Versión final y preparación de la presentación (15 h)
 	\end{enumerate}
 \end{enumerate}
 
-Cantidad total de horas: tantas.
-
-\textbf{¡Importante!:} la unidad de horas es h y va separada por espacio del número. Es incorrecto escribir ``23hs".
-
-\textbf{Se recomienda que no haya ninguna tarea que lleve más de 40 h.} De ser así se recomienda dividirla en tareas de menor duración.
-
-\end{consigna}
+Cantidad total de horas: 600 h.
 
 \section{10. Diagrama de Activity On Node}
 \label{sec:AoN}
