@@ -359,14 +359,16 @@ El camino crítico tiene una duración de 370 h. La tabla~\ref{tab:caminos} resu
 \centering
 \caption{Camino crítico y caminos semicríticos (duración en horas).}
 \label{tab:caminos}
+{\footnotesize
 \begin{tabularx}{\linewidth}{@{}|l|X|c|c|@{}}
 \hline
 \rowcolor[HTML]{C0C0C0}
 Camino & Secuencia de tareas & Dur. (h) & Holgura \\ \hline
-Crítico       & 2a→2c→3a→3b→3d→4b→4c→4d→5d→7c→7d→8a→8b→8c→8d & 370 & 0 h \\ \hline
-Semicrítico 1 & \textbf{2b}→2c→3a→3b→3d→4b→4c→4d→5d→7c→7d→8a→8b→8c→8d & 365 & 5 h \\ \hline
-Semicrítico 2 & 2a→2c→\textbf{3c}→3d→4b→4c→4d→5d→7c→7d→8a→8b→8c→8d & 365 & 5 h \\ \hline
+Crítico       & 2a $\to$ 2c $\to$ 3a $\to$ 3b $\to$ 3d $\to$ 4b $\to$ 4c $\to$ 4d $\to$ 5d $\to$ 7c $\to$ 7d $\to$ 8a $\to$ 8b $\to$ 8c $\to$ 8d & 370 & 0 h \\ \hline
+Semicrítico 1 & \textbf{2b} $\to$ 2c $\to$ 3a $\to$ 3b $\to$ 3d $\to$ 4b $\to$ 4c $\to$ 4d $\to$ 5d $\to$ 7c $\to$ 7d $\to$ 8a $\to$ 8b $\to$ 8c $\to$ 8d & 365 & 5 h \\ \hline
+Semicrítico 2 & 2a $\to$ 2c $\to$ \textbf{3c} $\to$ 3d $\to$ 4b $\to$ 4c $\to$ 4d $\to$ 5d $\to$ 7c $\to$ 7d $\to$ 8a $\to$ 8b $\to$ 8c $\to$ 8d & 365 & 5 h \\ \hline
 \end{tabularx}
+}
 \end{table}
 
 \section{11. Diagrama de Gantt}
@@ -467,14 +469,10 @@ Descripción &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Cantidad} &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor unitario (ARS)} &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor total (ARS)} \\ \hline
-Horas profesionales (especialista IA/ML) &
-  680 h &
-  \$ XXX/h &
-  \$ XXX \\ \hline
-Cómputo GPU en la nube (Google Colab Pro) &
+Cómputo GPU en la nube (Google Colab Pro, USD~9,99/mes\footnote{Tipo de cambio dólar blue: \$1.415 ARS/USD al 30/03/2026.}) &
   9 meses &
-  \$ XXX/mes &
-  \$ XXX \\ \hline
+  \$ 14.136/mes &
+  \$ 127.224 \\ \hline
 Licencias de software y herramientas de desarrollo &
   1 &
   \$ 0 &
@@ -496,11 +494,11 @@ Descripción &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Cantidad} &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor unitario (ARS)} &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor total (ARS)} \\ \hline
-Electricidad e internet (parte proporcional, 9 meses) &
+Electricidad e internet (parte proporcional\footnote{Estimado según tarifas Edesur/Edenor y planes de internet hogar vigentes. Completar con valores actuales al inicio del proyecto.}) &
   9 meses &
   \$ XXX/mes &
   \$ XXX \\ \hline
-Amortización de hardware (MacBook, vida útil 5 años) &
+Amortización de hardware (MacBook, vida útil 5 años\footnote{Estimado según valor de reposición del equipo dividido 60 meses. Completar con el valor de mercado actual del modelo propio.}) &
   9 meses &
   \$ XXX/mes &
   \$ XXX \\ \hline
