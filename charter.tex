@@ -5,7 +5,7 @@
 
 
 % El títulos de la memoria, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \ttitle
-\titulo{Control nutricional basado en IA} 
+\titulo{Control nutricional basado en inteligencia artificial} 
 
 % Nombre del posgrado, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \degreename
 \posgrado{Carrera de Especialización en Inteligencia Artificial}
@@ -79,7 +79,7 @@ Buenos Aires, \fechaInicioName
 
 \vspace{2cm}
 
-Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'' y consistirá en el desarrollo de un prototipo de aplicación móvil que utiliza visión por computadora e inteligencia artificial para analizar fotografías de alimentos, identificar sus componentes, estimar porciones y generar registros nutricionales automáticos. El trabajo tendrá un presupuesto preliminar estimado de 600 horas y un costo estimado de \textcolor{red}{\$ XXX}, con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública el \fechaFinalName.
+Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'' y consistirá en el desarrollo de un prototipo de aplicación móvil que utiliza visión por computadora e inteligencia artificial para analizar fotografías de alimentos, identificar sus componentes, estimar porciones y generar registros nutricionales automáticos. El trabajo tendrá un presupuesto preliminar estimado de 680 horas y un costo estimado de \textcolor{red}{\$ XXX}, con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública en \fechaFinalName.
 
 Se adjunta a esta acta la planificación inicial.
 
@@ -112,7 +112,7 @@ En la figura \ref{fig:diagBloques} se presenta el diagrama en bloques del sistem
 
 \begin{figure}[htpb]
 \centering
-\includegraphics[width=.65\textwidth]{./Figuras/diagBloques.png}
+\includegraphics[width=.85\textwidth]{./Figuras/diagBloques.png}
 \caption{Diagrama en bloques del sistema.}
 \label{fig:diagBloques}
 \end{figure}
@@ -232,6 +232,10 @@ Para el desarrollo del presente proyecto se supone que:
 		\begin{enumerate}
 			\item[RIO1] El módulo de consulta nutricional debe integrarse con al menos una base de datos nutricional pública mediante API o dataset local.
 		\end{enumerate}
+	\item Requerimientos regulatorios:
+		\begin{enumerate}
+			\item[RReg1] El sistema debe tratar los datos personales de los usuarios (imágenes de alimentos e historial nutricional) en conformidad con la Ley~25.326 de Protección de Datos Personales de la República Argentina.
+		\end{enumerate}
 \end{enumerate}
 
 \section{7. Historias de usuarios (\textit{Product backlog})}
@@ -240,19 +244,19 @@ Para el desarrollo del presente proyecto se supone que:
 El criterio para calcular los \textit{story points} es: SP = complejidad (1--5) + dificultad (1--5) + incertidumbre (1--5), con un máximo posible de 15 puntos.
 
 \begin{enumerate}
-\item ``Como persona en seguimiento nutricional, quiero fotografiar mi comida y obtener automáticamente su contenido nutricional, para registrar mi ingesta sin necesidad de búsqueda manual."
+\item ``Como usuario final, quiero fotografiar mi comida y obtener automáticamente su contenido nutricional, para registrar mi ingesta sin necesidad de búsqueda manual."
 
 \textit{Story points}: 13 (complejidad: 5, dificultad: 4, incertidumbre: 4)
 
-\item ``Como persona en seguimiento nutricional, quiero ver los macronutrientes de cada comida registrada, para monitorear si estoy cumpliendo mi plan dietético."
+\item ``Como usuario final, quiero ver los macronutrientes de cada comida registrada, para monitorear si estoy cumpliendo mi plan dietético."
 
 \textit{Story points}: 3 (complejidad: 1, dificultad: 1, incertidumbre: 1)
 
-\item ``Como persona en seguimiento nutricional, quiero consultar mi historial nutricional de los últimos 7 días, para hacer seguimiento de mi progreso a lo largo del tiempo."
+\item ``Como usuario final, quiero consultar mi historial nutricional de los últimos 7 días, para hacer seguimiento de mi progreso a lo largo del tiempo."
 
 \textit{Story points}: 4 (complejidad: 2, dificultad: 1, incertidumbre: 1)
 
-\item ``Como persona en seguimiento nutricional, quiero poder corregir los alimentos identificados por el sistema cuando el reconocimiento sea incorrecto, para asegurar la exactitud de mis registros."
+\item ``Como usuario final, quiero poder corregir los alimentos identificados por el sistema cuando el reconocimiento sea incorrecto, para asegurar la exactitud de mis registros."
 
 \textit{Story points}: 6 (complejidad: 2, dificultad: 2, incertidumbre: 2)
 
@@ -326,15 +330,16 @@ Los entregables del proyecto son:
 	\item Integración del backend de IA con la app (25 h)
 	\item Pruebas de integración y correcciones (15 h)
 	\end{enumerate}
-\item Documentación y memoria del Trabajo Final (50 h)
+\item Documentación y memoria del Trabajo Final (130 h)
 	\begin{enumerate}
-	\item Redacción de la memoria (versión 1) (20 h)
-	\item Revisión y corrección con el director (versión 2) (15 h)
-	\item Versión final y preparación de la presentación (15 h)
+	\item Redacción de la memoria (versión 1) (25 h)
+	\item Revisión y corrección con el director (versión 2) (50 h)
+	\item Versión final y preparación de la presentación (30 h)
+	\item Preparación y práctica de la defensa oral (25 h)
 	\end{enumerate}
 \end{enumerate}
 
-Cantidad total de horas: 600 h.
+Cantidad total de horas: 680 h.
 
 \section{10. Diagrama de Activity On Node}
 \label{sec:AoN}
@@ -344,11 +349,11 @@ En la figura~\ref{fig:AoN} se presenta el diagrama \textit{Activity on Node} con
 \begin{figure}[htpb]
 \centering
 \includegraphics[width=.95\textwidth]{./Figuras/AoN.png}
-\caption{Diagrama de \textit{Activity on Node}. Tiempos en horas. Camino crítico (rojo): 2a $\rightarrow$ 2c $\rightarrow$ 3a $\rightarrow$ 3b $\rightarrow$ 3d $\rightarrow$ 4b $\rightarrow$ 4c $\rightarrow$ 4d $\rightarrow$ 5d $\rightarrow$ 7c $\rightarrow$ 7d $\rightarrow$ 8a $\rightarrow$ 8b $\rightarrow$ 8c, con una duración acumulada de 290 h.}
+\caption{Diagrama de \textit{Activity on Node}. Tiempos en horas. Camino crítico (rojo): 2a $\rightarrow$ 2c $\rightarrow$ 3a $\rightarrow$ 3b $\rightarrow$ 3d $\rightarrow$ 4b $\rightarrow$ 4c $\rightarrow$ 4d $\rightarrow$ 5d $\rightarrow$ 7c $\rightarrow$ 7d $\rightarrow$ 8a $\rightarrow$ 8b $\rightarrow$ 8c $\rightarrow$ 8d, con una duración acumulada de 370 h.}
 \label{fig:AoN}
 \end{figure}
 
-El camino crítico tiene una duración de 290 h. La tabla~\ref{tab:caminos} resume el camino crítico y los dos caminos semicríticos con mayor duración.
+El camino crítico tiene una duración de 370 h. La tabla~\ref{tab:caminos} resume el camino crítico y los dos caminos semicríticos con mayor duración.
 
 \begin{table}[htpb]
 \centering
@@ -358,16 +363,16 @@ El camino crítico tiene una duración de 290 h. La tabla~\ref{tab:caminos} resu
 \hline
 \rowcolor[HTML]{C0C0C0}
 Camino & Secuencia de tareas & Dur. (h) & Holgura \\ \hline
-Crítico       & 2a→2c→3a→3b→3d→4b→4c→4d→5d→7c→7d→8a→8b→8c & 290 & 0 h \\ \hline
-Semicrítico 1 & \textbf{2b}→2c→3a→3b→3d→4b→4c→4d→5d→7c→7d→8a→8b→8c & 285 & 5 h \\ \hline
-Semicrítico 2 & 2a→2c→\textbf{3c}→3d→4b→4c→4d→5d→7c→7d→8a→8b→8c & 285 & 5 h \\ \hline
+Crítico       & 2a→2c→3a→3b→3d→4b→4c→4d→5d→7c→7d→8a→8b→8c→8d & 370 & 0 h \\ \hline
+Semicrítico 1 & \textbf{2b}→2c→3a→3b→3d→4b→4c→4d→5d→7c→7d→8a→8b→8c→8d & 365 & 5 h \\ \hline
+Semicrítico 2 & 2a→2c→\textbf{3c}→3d→4b→4c→4d→5d→7c→7d→8a→8b→8c→8d & 365 & 5 h \\ \hline
 \end{tabularx}
 \end{table}
 
 \section{11. Diagrama de Gantt}
 \label{sec:gantt}
 
-En la figura~\ref{fig:gantt} se presenta el diagrama de Gantt del proyecto. Las unidades de tiempo son días calendario y la disponibilidad estimada es de 15 h semanales, lo que equivale a 600 h totales en aproximadamente 40 semanas (3 de marzo de 2026 al 22 de diciembre de 2026). Los colores identifican cada grupo de tareas del WBS.
+En la figura~\ref{fig:gantt} se presenta el diagrama de Gantt del proyecto. Las unidades de tiempo son días calendario y la disponibilidad estimada es de 15 h semanales, lo que equivale a 680 h totales en aproximadamente 45 semanas (3 de marzo de 2026 al 20 de enero de 2027). Los colores identifican cada grupo de tareas del WBS.
 
 \begin{landscape}
 \begin{figure}[htpb]
@@ -387,11 +392,11 @@ En la figura~\ref{fig:gantt} se presenta el diagrama de Gantt del proyecto. Las 
       group right shift=0,
       group top shift=0.7,
       group height=0.3
-      ]{2026-03-03}{2026-12-22}
-      \gantttitlecalendar*{2026-03-03}{2026-12-22}{year} \\
-      \gantttitlecalendar*{2026-03-03}{2026-12-22}{month} \\
+      ]{2026-03-03}{2027-01-20}
+      \gantttitlecalendar*{2026-03-03}{2027-01-20}{year} \\
+      \gantttitlecalendar*{2026-03-03}{2027-01-20}{month} \\
       %%% Grupo 1 - Gestión
-      \ganttgroup[group/.append style={fill=gray!60, draw=gray!80}]{1. Gestión (30 h)}{2026-03-03}{2026-12-22} \\
+      \ganttgroup[group/.append style={fill=gray!60, draw=gray!80}]{1. Gestión (30 h)}{2026-03-03}{2027-01-20} \\
       \ganttbar[bar/.append style={fill=gray!35}]{1a. Planificación (20 h)}{2026-03-03}{2026-03-24} \\
       \ganttbar[bar/.append style={fill=gray!25}]{1b. Seguimiento (10 h)}{2026-03-03}{2026-12-22} \\
       %%% Grupo 2 - Investigación
@@ -430,16 +435,17 @@ En la figura~\ref{fig:gantt} se presenta el diagrama de Gantt del proyecto. Las 
       \ganttbar[bar/.append style={fill=cyan!30}]{7c. Integración IA (25 h)}{2026-11-10}{2026-12-01} \\
       \ganttbar[bar/.append style={fill=cyan!30}]{7d. Pruebas (15 h)}{2026-12-01}{2026-12-08} \\
       %%% Grupo 8 - Documentación
-      \ganttgroup[group/.append style={fill=yellow!60, draw=yellow!80}]{8. Documentación (50 h)}{2026-10-20}{2026-12-22} \\
-      \ganttbar[bar/.append style={fill=yellow!35}]{8a. Memoria v1 (20 h)}{2026-10-20}{2026-11-10} \\
-      \ganttbar[bar/.append style={fill=yellow!35}]{8b. Revisión director (15 h)}{2026-11-10}{2026-12-01} \\
-      \ganttbar[bar/.append style={fill=yellow!35}]{8c. Versión final (15 h)}{2026-12-01}{2026-12-22} \\
+      \ganttgroup[group/.append style={fill=yellow!60, draw=yellow!80}]{8. Documentación (130 h)}{2026-10-20}{2027-01-20} \\
+      \ganttbar[bar/.append style={fill=yellow!35}]{8a. Memoria v1 (25 h)}{2026-10-20}{2026-11-10} \\
+      \ganttbar[bar/.append style={fill=yellow!35}]{8b. Revisión director (50 h)}{2026-11-10}{2026-12-15} \\
+      \ganttbar[bar/.append style={fill=yellow!35}]{8c. Versión final (30 h)}{2026-12-15}{2027-01-05} \\
+      \ganttbar[bar/.append style={fill=yellow!35}]{8d. Defensa oral (25 h)}{2027-01-05}{2027-01-20} \\
       %%% Milestones
       \ganttmilestone{Entrega GdP}{2026-04-21} \\
-      \ganttmilestone{Defensa pública}{2026-12-22}
+      \ganttmilestone{Defensa pública}{2027-01-20}
     \end{ganttchart}
   \end{center}
-  \caption{Diagrama de Gantt del proyecto (3 de marzo de 2026 -- 22 de diciembre de 2026). Unidades: días calendario. Disponibilidad: 15 h semanales. Colores: \textcolor{gray!80}{$\blacksquare$} Gestión, \textcolor{blue!60}{$\blacksquare$} Investigación, \textcolor{green!60}{$\blacksquare$} Datos, \textcolor{orange!70}{$\blacksquare$} Modelo CV, \textcolor{red!60}{$\blacksquare$} Porciones, \textcolor{violet!60}{$\blacksquare$} BD nutricional, \textcolor{cyan!70}{$\blacksquare$} App iOS, \textcolor{yellow!70}{$\blacksquare$} Documentación.}
+  \caption{Diagrama de Gantt del proyecto (3 de marzo de 2026 -- 20 de enero de 2027). Unidades: días calendario. Disponibilidad: 15 h semanales. Colores: \textcolor{gray!80}{$\blacksquare$} Gestión, \textcolor{blue!60}{$\blacksquare$} Investigación, \textcolor{green!60}{$\blacksquare$} Datos, \textcolor{orange!70}{$\blacksquare$} Modelo CV, \textcolor{red!60}{$\blacksquare$} Porciones, \textcolor{violet!60}{$\blacksquare$} BD nutricional, \textcolor{cyan!70}{$\blacksquare$} App iOS, \textcolor{yellow!70}{$\blacksquare$} Documentación.}
   \label{fig:gantt}
 \end{figure}
 \end{landscape}
@@ -462,7 +468,7 @@ Descripción &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor unitario (ARS)} &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor total (ARS)} \\ \hline
 Horas profesionales (especialista IA/ML) &
-  600 h &
+  680 h &
   \$ XXX/h &
   \$ XXX \\ \hline
 Cómputo GPU en la nube (Google Colab Pro) &
