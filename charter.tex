@@ -58,7 +58,7 @@ Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios 
 0      & Creación del documento                                 &\fechaInicioName \\ \hline
 1      & Se completa hasta el punto 5 inclusive                & 15 de marzo de 2026 \\ \hline
 2      & Se completa hasta el punto 9 inclusive                & 18 de marzo de 2026 \\ \hline
-%3      & Se completa hasta el punto 12 inclusive                & {día} de {mes} de 202X \\ \hline
+3      & Se completa hasta el punto 12 inclusive               & 30 de marzo de 2026 \\ \hline
 %4      & Se completa el plan	                                 & {día} de {mes} de 202X \\ \hline
 
 % Si hay más correcciones pasada la versión 4 también se deben especificar acá
@@ -339,184 +339,170 @@ Cantidad total de horas: 600 h.
 \section{10. Diagrama de Activity On Node}
 \label{sec:AoN}
 
-\begin{consigna}{red}
-Armar el AoN a partir del WBS definido en la etapa anterior.
-
-Una herramienta simple para desarrollar los diagramas es el Draw.io (\url{https://app.diagrams.net/}).
-\href{https://app.diagrams.net}{Draw.io}
-
+En la figura~\ref{fig:AoN} se presenta el diagrama \textit{Activity on Node} construido a partir del WBS de la sección~\ref{sec:wbs}. Los tiempos están expresados en horas. Los nodos del camino crítico se indican en rojo.
 
 \begin{figure}[htpb]
-\centering 
-\includegraphics[width=.8\textwidth]{./Figuras/AoN.png}
-\caption{Diagrama de \textit{Activity on Node}.}
+\centering
+\includegraphics[width=.95\textwidth]{./Figuras/AoN.png}
+\caption{Diagrama de \textit{Activity on Node}. Tiempos en horas. Camino crítico (rojo): 2a $\rightarrow$ 2c $\rightarrow$ 3a $\rightarrow$ 3b $\rightarrow$ 3d $\rightarrow$ 4b $\rightarrow$ 4c $\rightarrow$ 4d $\rightarrow$ 5d $\rightarrow$ 7c $\rightarrow$ 7d $\rightarrow$ 8a $\rightarrow$ 8b $\rightarrow$ 8c, con una duración acumulada de 290 h.}
 \label{fig:AoN}
 \end{figure}
 
-Indicar claramente en qué unidades están expresados los tiempos.
-De ser necesario indicar los caminos semi críticos y analizar sus tiempos mediante un cuadro.
-Es recomendable usar colores y un cuadro indicativo describiendo qué representa cada color.
+El camino crítico tiene una duración de 290 h. La tabla~\ref{tab:caminos} resume el camino crítico y los dos caminos semicríticos con mayor duración.
 
-\end{consigna}
+\begin{table}[htpb]
+\centering
+\caption{Camino crítico y caminos semicríticos (duración en horas).}
+\label{tab:caminos}
+\begin{tabularx}{\linewidth}{@{}|l|X|c|c|@{}}
+\hline
+\rowcolor[HTML]{C0C0C0}
+Camino & Secuencia de tareas & Dur. (h) & Holgura \\ \hline
+Crítico       & 2a→2c→3a→3b→3d→4b→4c→4d→5d→7c→7d→8a→8b→8c & 290 & 0 h \\ \hline
+Semicrítico 1 & \textbf{2b}→2c→3a→3b→3d→4b→4c→4d→5d→7c→7d→8a→8b→8c & 285 & 5 h \\ \hline
+Semicrítico 2 & 2a→2c→\textbf{3c}→3d→4b→4c→4d→5d→7c→7d→8a→8b→8c & 285 & 5 h \\ \hline
+\end{tabularx}
+\end{table}
 
 \section{11. Diagrama de Gantt}
 \label{sec:gantt}
 
-\begin{consigna}{red}
-Existen muchos programas y recursos \textit{online} para hacer diagramas de Gantt, entre los cuales destacamos:
+En la figura~\ref{fig:gantt} se presenta el diagrama de Gantt del proyecto. Las unidades de tiempo son días calendario y la disponibilidad estimada es de 15 h semanales, lo que equivale a 600 h totales en aproximadamente 40 semanas (3 de marzo de 2026 al 22 de diciembre de 2026). Los colores identifican cada grupo de tareas del WBS.
 
-\begin{itemize}
-\item Planner
-\item GanttProject
-\item Trello + \textit{plugins}. En el siguiente link hay un tutorial oficial: \\ \url{https://blog.trello.com/es/diagrama-de-gantt-de-un-proyecto}
-\item Creately, herramienta online colaborativa. \\\url{https://creately.com/diagram/example/ieb3p3ml/LaTeX}
-\item Se puede hacer en latex con el paquete \textit{pgfgantt}\\ \url{http://ctan.dcc.uchile.cl/graphics/pgf/contrib/pgfgantt/pgfgantt.pdf}
-\end{itemize}
-
-Pegar acá una captura de pantalla del diagrama de Gantt, cuidando que la letra sea suficientemente grande como para ser legible. 
-Si el diagrama queda demasiado ancho, se puede pegar primero la ``tabla'' del Gantt y luego pegar la parte del diagrama de barras del diagrama de Gantt.
-
-Configurar el software para que en la parte de la tabla muestre los códigos del EDT (WBS).\\
-Configurar el software para que al lado de cada barra muestre el nombre de cada tarea.\\
-Revisar que la fecha de finalización coincida con lo indicado en el Acta Constitutiva.
-
-En la figura \ref{fig:gantt}, se muestra un ejemplo de diagrama de gantt realizado con el paquete de \textit{pgfgantt}. 
-En la plantilla pueden ver el código que lo genera y usarlo de base para construir el propio.
-
-Las fechas pueden ser calculadas utilizando alguna de las herramientas antes citadas. Sin embargo, el siguiente ejemplo
-fue elaborado utilizando 
-\href{https://docs.google.com/spreadsheets/d/1fBz8NhSpc4tkkhz3KjJCbh1nR_ltDkfEcZi4tZXduqs}{esta hoja de cálculo}.
-
-Es importante destacar que el ancho del diagrama estará dado por la longitud del texto utilizado para las tareas 
-(Ejemplo: tarea 1, tarea 2, etcétera) y el valor \textit{x unit}. Para mejorar la apariencia del diagrama, es necesario
-ajustar este valor y, quizás, acortar los nombres de las tareas.
-
+\begin{landscape}
 \begin{figure}[htpb]
   \begin{center}
     \begin{ganttchart}[
       time slot unit=day,
       time slot format=isodate,
-      x unit=0.038cm,
-      y unit title=0.7cm,
-      y unit chart=0.6cm,
-      milestone/.append style={xscale=4}
-      ]{2021-03-05}{2021-12-16}
-      \gantttitlecalendar*{2021-03-05}{2021-12-16}{year} \\
-      \gantttitlecalendar*{2021-03-05}{2021-12-16}{month} \\
-      \ganttgroup{Duración Total}{2021-03-05}{2021-12-16} \\
-      %%%%%%%%%%%%%%%%%Organización
-      \ganttgroup{Organización}{2021-03-05}{2021-04-16} \\
-      \ganttbar{Planificación del proyecto}{2021-03-05}{2021-04-15} \\
-      %%%%%%%%%%%%%%%%%Ejecución
-      \ganttgroup{Ejecución}{2021-04-16}{2021-10-21} \\
-      \ganttbar{Tarea 1}{2021-04-16}{2021-04-29} \\
-      \ganttbar{Tarea 2}{2021-04-30}{2021-05-13} \\
-      \ganttbar{Tarea 3}{2021-05-14}{2021-05-27} \\
-      \ganttbar{Tarea 4}{2021-05-28}{2021-07-12} \\
-      \ganttbar{Tarea 5}{2021-07-13}{2021-08-09} \\
-      \ganttbar{Tarea 6}{2021-08-10}{2021-09-23} \\
-      \ganttbar{Tarea 7}{2021-09-24}{2021-09-30} \\
-      \ganttbar{Tarea 8}{2021-10-01}{2021-10-14} \\
-      \ganttbar{Tarea 9}{2021-10-15}{2021-10-21} \\
-      % %%%%%%%%%%%%%%%%%Finalización
-      \ganttgroup{Finalización}{2021-10-22}{2021-12-16} \\
-      \ganttbar{Memoria v1}{2021-10-22}{2021-11-04} \\
-      \ganttbar{Memoria v2}{2021-11-05}{2021-11-18} \\
-      \ganttbar{Memoria final}{2021-11-19}{2021-12-02} \\
-      % La fecha del siguiente milestone es la fecha en que terminamos la memoria
-      \ganttmilestone{Enviar memoria al director}{2021-12-02} \\
-      \ganttbar{Elaborar la presentación}{2021-12-03}{2021-12-16} \\
-      \ganttmilestone{Ensayo de la presentación}{2021-12-16} \\
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      x unit=0.040cm,
+      y unit title=0.55cm,
+      y unit chart=0.45cm,
+      milestone/.append style={xscale=4},
+      bar label font=\scriptsize,
+      group label font=\scriptsize\bfseries,
+      title label font=\scriptsize,
+      milestone label font=\scriptsize\itshape,
+      bar height=0.65,
+      group right shift=0,
+      group top shift=0.7,
+      group height=0.3
+      ]{2026-03-03}{2026-12-22}
+      \gantttitlecalendar*{2026-03-03}{2026-12-22}{year} \\
+      \gantttitlecalendar*{2026-03-03}{2026-12-22}{month} \\
+      %%% Grupo 1 - Gestión
+      \ganttgroup[group/.append style={fill=gray!60, draw=gray!80}]{1. Gestión (30 h)}{2026-03-03}{2026-12-22} \\
+      \ganttbar[bar/.append style={fill=gray!35}]{1a. Planificación (20 h)}{2026-03-03}{2026-03-24} \\
+      \ganttbar[bar/.append style={fill=gray!25}]{1b. Seguimiento (10 h)}{2026-03-03}{2026-12-22} \\
+      %%% Grupo 2 - Investigación
+      \ganttgroup[group/.append style={fill=blue!55, draw=blue!75}]{2. Investigación (60 h)}{2026-03-03}{2026-04-28} \\
+      \ganttbar[bar/.append style={fill=blue!30}]{2a. Rev. CV (25 h)}{2026-03-03}{2026-04-07} \\
+      \ganttbar[bar/.append style={fill=blue!30}]{2b. Rev. porciones (20 h)}{2026-03-03}{2026-03-31} \\
+      \ganttbar[bar/.append style={fill=blue!30}]{2c. Análisis datasets (15 h)}{2026-04-07}{2026-04-28} \\
+      %%% Grupo 3 - Datos
+      \ganttgroup[group/.append style={fill=green!55, draw=green!75}]{3. Datos (80 h)}{2026-04-28}{2026-06-30} \\
+      \ganttbar[bar/.append style={fill=green!30}]{3a. Descarga datasets (20 h)}{2026-04-28}{2026-05-19} \\
+      \ganttbar[bar/.append style={fill=green!30}]{3b. Limpieza datos (15 h)}{2026-05-19}{2026-06-02} \\
+      \ganttbar[bar/.append style={fill=green!30}]{3c. Imágenes locales (30 h)}{2026-04-28}{2026-06-09} \\
+      \ganttbar[bar/.append style={fill=green!30}]{3d. Pipeline preproc. (15 h)}{2026-06-09}{2026-06-30} \\
+      %%% Grupo 4 - Modelo CV
+      \ganttgroup[group/.append style={fill=orange!55, draw=orange!75}]{4. Modelo CV (130 h)}{2026-04-07}{2026-10-20} \\
+      \ganttbar[bar/.append style={fill=orange!30}]{4a. Selección modelo (20 h)}{2026-04-07}{2026-04-28} \\
+      \ganttbar[bar/.append style={fill=orange!30}]{4b. Entrenamiento (30 h)}{2026-06-30}{2026-07-28} \\
+      \ganttbar[bar/.append style={fill=orange!30}]{4c. Evaluación (20 h)}{2026-07-28}{2026-08-18} \\
+      \ganttbar[bar/.append style={fill=orange!30}]{4d. Iteraciones (40 h)}{2026-08-18}{2026-09-29} \\
+      \ganttbar[bar/.append style={fill=orange!30}]{4e. Doc. técnica (20 h)}{2026-09-29}{2026-10-20} \\
+      %%% Grupo 5 - Porciones
+      \ganttgroup[group/.append style={fill=red!50, draw=red!70}]{5. Porciones (100 h)}{2026-03-31}{2026-10-20} \\
+      \ganttbar[bar/.append style={fill=red!25}]{5a. Inv. técnicas (20 h)}{2026-03-31}{2026-04-21} \\
+      \ganttbar[bar/.append style={fill=red!25}]{5b. Implementación (40 h)}{2026-06-30}{2026-08-18} \\
+      \ganttbar[bar/.append style={fill=red!25}]{5c. Evaluación (20 h)}{2026-08-18}{2026-09-08} \\
+      \ganttbar[bar/.append style={fill=red!25}]{5d. Integración (20 h)}{2026-09-29}{2026-10-20} \\
+      %%% Grupo 6 - BD nutricional
+      \ganttgroup[group/.append style={fill=violet!50, draw=violet!70}]{6. BD nutricional (50 h)}{2026-04-28}{2026-06-16} \\
+      \ganttbar[bar/.append style={fill=violet!25}]{6a. Eval. BD (15 h)}{2026-04-28}{2026-05-12} \\
+      \ganttbar[bar/.append style={fill=violet!25}]{6b. Wrapper BD (20 h)}{2026-05-12}{2026-06-02} \\
+      \ganttbar[bar/.append style={fill=violet!25}]{6c. Mapeo (15 h)}{2026-06-02}{2026-06-16} \\
+      %%% Grupo 7 - App iOS
+      \ganttgroup[group/.append style={fill=cyan!55, draw=cyan!75}]{7. App iOS (100 h)}{2026-03-24}{2026-12-08} \\
+      \ganttbar[bar/.append style={fill=cyan!30}]{7a. Diseño UI (20 h)}{2026-03-24}{2026-04-14} \\
+      \ganttbar[bar/.append style={fill=cyan!30}]{7b. Frontend iOS (40 h)}{2026-09-29}{2026-11-10} \\
+      \ganttbar[bar/.append style={fill=cyan!30}]{7c. Integración IA (25 h)}{2026-11-10}{2026-12-01} \\
+      \ganttbar[bar/.append style={fill=cyan!30}]{7d. Pruebas (15 h)}{2026-12-01}{2026-12-08} \\
+      %%% Grupo 8 - Documentación
+      \ganttgroup[group/.append style={fill=yellow!60, draw=yellow!80}]{8. Documentación (50 h)}{2026-10-20}{2026-12-22} \\
+      \ganttbar[bar/.append style={fill=yellow!35}]{8a. Memoria v1 (20 h)}{2026-10-20}{2026-11-10} \\
+      \ganttbar[bar/.append style={fill=yellow!35}]{8b. Revisión director (15 h)}{2026-11-10}{2026-12-01} \\
+      \ganttbar[bar/.append style={fill=yellow!35}]{8c. Versión final (15 h)}{2026-12-01}{2026-12-22} \\
+      %%% Milestones
+      \ganttmilestone{Entrega GdP}{2026-04-21} \\
+      \ganttmilestone{Defensa pública}{2026-12-22}
     \end{ganttchart}
   \end{center}
-  \caption{Diagrama de gantt de ejemplo}
+  \caption{Diagrama de Gantt del proyecto (3 de marzo de 2026 -- 22 de diciembre de 2026). Unidades: días calendario. Disponibilidad: 15 h semanales. Colores: \textcolor{gray!80}{$\blacksquare$} Gestión, \textcolor{blue!60}{$\blacksquare$} Investigación, \textcolor{green!60}{$\blacksquare$} Datos, \textcolor{orange!70}{$\blacksquare$} Modelo CV, \textcolor{red!60}{$\blacksquare$} Porciones, \textcolor{violet!60}{$\blacksquare$} BD nutricional, \textcolor{cyan!70}{$\blacksquare$} App iOS, \textcolor{yellow!70}{$\blacksquare$} Documentación.}
   \label{fig:gantt}
 \end{figure}
-
-
-\begin{landscape}
-\begin{figure}[htpb]
-\centering 
-\includegraphics[height=.85\textheight]{./Figuras/Gantt-2.png}
-\caption{Ejemplo de diagrama de Gantt (apaisado).} %Modificar este título acorde.
-\label{fig:diagGantt}
-\end{figure}
-
 \end{landscape}
-
-\end{consigna}
 
 
 \section{12. Presupuesto detallado del proyecto}
 \label{sec:presupuesto}
 
-\begin{consigna}{red}
-Si el proyecto es complejo entonces separarlo en partes:
-\begin{itemize}
-	\item Un total global, indicando el subtotal acumulado por cada una de las áreas.
-	\item El desglose detallado del subtotal de cada una de las áreas.
-\end{itemize}
-
-IMPORTANTE: No olvidarse de considerar los COSTOS INDIRECTOS.
-
-Incluir la aclaración de si se emplea como moneda el peso argentino (ARS) o si se usa moneda extranjera (USD, EUR, etc). Si es en moneda extranjera se debe indicar la tasa de conversión respecto a la moneda local en una fecha dada.
-
-\end{consigna}
+Los costos se expresan en pesos argentinos (ARS). La tabla detalla los costos directos e indirectos del proyecto. Los costos indirectos se estiman como el 20\,\% del subtotal directo.
 
 \begin{table}[htpb]
 \centering
 \begin{tabularx}{\linewidth}{@{}|X|c|r|r|@{}}
 \hline
-\rowcolor[HTML]{C0C0C0} 
+\rowcolor[HTML]{C0C0C0}
 \multicolumn{4}{|c|}{\cellcolor[HTML]{C0C0C0}COSTOS DIRECTOS} \\ \hline
-\rowcolor[HTML]{C0C0C0} 
+\rowcolor[HTML]{C0C0C0}
 Descripción &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Cantidad} &
-  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor unitario} &
-  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor total} \\ \hline
- &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} \\ \hline
- &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
-\multicolumn{3}{|c|}{SUBTOTAL} &
-  \multicolumn{1}{c|}{} \\ \hline
-\rowcolor[HTML]{C0C0C0} 
+  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor unitario (ARS)} &
+  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor total (ARS)} \\ \hline
+Horas profesionales (especialista IA/ML) &
+  600 h &
+  \$ XXX/h &
+  \$ XXX \\ \hline
+Cómputo GPU en la nube (Google Colab Pro) &
+  9 meses &
+  \$ XXX/mes &
+  \$ XXX \\ \hline
+Licencias de software y herramientas de desarrollo &
+  1 &
+  \$ 0 &
+  \$ 0 \\ \hline
+Dispositivo iOS para pruebas (equipo propio) &
+  1 &
+  \$ 0 &
+  \$ 0 \\ \hline
+Acceso a bibliografía y papers (arXiv / acceso institucional) &
+  1 &
+  \$ 0 &
+  \$ 0 \\ \hline
+\multicolumn{3}{|c|}{SUBTOTAL DIRECTO} &
+  \$ XXX \\ \hline
+\rowcolor[HTML]{C0C0C0}
 \multicolumn{4}{|c|}{\cellcolor[HTML]{C0C0C0}COSTOS INDIRECTOS} \\ \hline
-\rowcolor[HTML]{C0C0C0} 
+\rowcolor[HTML]{C0C0C0}
 Descripción &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Cantidad} &
-  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor unitario} &
-  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor total} \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
-\multicolumn{3}{|c|}{SUBTOTAL} &
-  \multicolumn{1}{c|}{} \\ \hline
+  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor unitario (ARS)} &
+  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor total (ARS)} \\ \hline
+Electricidad e internet (parte proporcional, 9 meses) &
+  9 meses &
+  \$ XXX/mes &
+  \$ XXX \\ \hline
+Amortización de hardware (MacBook, vida útil 5 años) &
+  9 meses &
+  \$ XXX/mes &
+  \$ XXX \\ \hline
+\multicolumn{3}{|c|}{SUBTOTAL INDIRECTO (20\,\% del directo)} &
+  \$ XXX \\ \hline
 \rowcolor[HTML]{C0C0C0}
 \multicolumn{3}{|c|}{TOTAL} &
-   \\ \hline
+  \$ XXX \\ \hline
 \end{tabularx}%
 \end{table}
 
