@@ -344,14 +344,41 @@ Cantidad total de horas: 680 h.
 \section{10. Diagrama de Activity On Node}
 \label{sec:AoN}
 
-En la figura~\ref{fig:AoN} se presenta el diagrama \textit{Activity on Node} construido a partir del WBS de la sección~\ref{sec:wbs}. Los tiempos están expresados en horas. Los nodos del camino crítico se indican en rojo.
+En las figuras~\ref{fig:AoN1} a \ref{fig:AoN4} se presenta el diagrama \textit{Activity on Node} construido a partir del WBS de la sección~\ref{sec:wbs}. Los tiempos están expresados en horas. Los nodos del camino crítico se indican en rojo.
 
 \begin{landscape}
-\begin{figure}[htpb]
+\begin{figure}[p]
 \centering
-\includegraphics[width=\linewidth]{./Figuras/AoN.png}
-\caption{Diagrama de \textit{Activity on Node}. Tiempos en horas. Camino crítico (rojo): 2a $\rightarrow$ 2c $\rightarrow$ 3a $\rightarrow$ 3b $\rightarrow$ 3d $\rightarrow$ 4b $\rightarrow$ 4c $\rightarrow$ 4d $\rightarrow$ 5d $\rightarrow$ 7c $\rightarrow$ 7d $\rightarrow$ 8a $\rightarrow$ 8b $\rightarrow$ 8c $\rightarrow$ 8d, con una duración acumulada de 370 h.}
-\label{fig:AoN}
+\includegraphics[width=\linewidth, keepaspectratio]{./Figuras/AoN_parte_1.png}
+\caption{Diagrama de \textit{Activity on Node} (1/4). Tiempos en horas.}
+\label{fig:AoN1}
+\end{figure}
+\end{landscape}
+
+\begin{landscape}
+\begin{figure}[p]
+\centering
+\includegraphics[width=\linewidth, keepaspectratio]{./Figuras/AoN_parte_2.png}
+\caption{Diagrama de \textit{Activity on Node} (2/4).}
+\label{fig:AoN2}
+\end{figure}
+\end{landscape}
+
+\begin{landscape}
+\begin{figure}[p]
+\centering
+\includegraphics[width=\linewidth, keepaspectratio]{./Figuras/AoN_parte_3.png}
+\caption{Diagrama de \textit{Activity on Node} (3/4).}
+\label{fig:AoN3}
+\end{figure}
+\end{landscape}
+
+\begin{landscape}
+\begin{figure}[p]
+\centering
+\includegraphics[width=\linewidth, keepaspectratio]{./Figuras/AoN_parte_4.png}
+\caption{Diagrama de \textit{Activity on Node} (4/4). Camino crítico (rojo): 2a $\rightarrow$ 2c $\rightarrow$ 3a $\rightarrow$ 3b $\rightarrow$ 3d $\rightarrow$ 4b $\rightarrow$ 4c $\rightarrow$ 4d $\rightarrow$ 5d $\rightarrow$ 7c $\rightarrow$ 7d $\rightarrow$ 8a $\rightarrow$ 8b $\rightarrow$ 8c $\rightarrow$ 8d, con una duración acumulada de 370 h.}
+\label{fig:AoN4}
 \end{figure}
 \end{landscape}
 
@@ -376,7 +403,7 @@ Semicrítico 2 & 2a $\to$ 2c $\to$ \textbf{3c} $\to$ 3d $\to$ 4b $\to$ 4c $\to$ 
 \section{11. Diagrama de Gantt}
 \label{sec:gantt}
 
-En la figura~\ref{fig:gantt} se presenta el diagrama de Gantt del proyecto. Las unidades de tiempo son días calendario y la disponibilidad estimada es de 15 h semanales, lo que equivale a 680 h totales en aproximadamente 45 semanas (3 de marzo de 2026 al 20 de enero de 2027). Los colores identifican cada grupo de tareas del WBS.
+En las figuras~\ref{fig:gantt1} y~\ref{fig:gantt2} se presenta el diagrama de Gantt del proyecto. Las unidades de tiempo son días calendario y la disponibilidad estimada es de 15 h semanales, lo que equivale a 680 h totales en aproximadamente 45 semanas (3 de marzo de 2026 al 20 de enero de 2027). Los colores identifican cada grupo de tareas del WBS.
 
 \begin{landscape}
 \begin{figure}[htpb]
@@ -421,7 +448,37 @@ En la figura~\ref{fig:gantt} se presenta el diagrama de Gantt del proyecto. Las 
       \ganttbar[bar/.append style={fill=orange!30}]{4b. Entrenamiento (30 h)}{2026-06-30}{2026-07-28} \\
       \ganttbar[bar/.append style={fill=orange!30}]{4c. Evaluación (20 h)}{2026-07-28}{2026-08-18} \\
       \ganttbar[bar/.append style={fill=orange!30}]{4d. Iteraciones (40 h)}{2026-08-18}{2026-09-29} \\
-      \ganttbar[bar/.append style={fill=orange!30}]{4e. Doc. técnica (20 h)}{2026-09-29}{2026-10-20} \\
+      \ganttbar[bar/.append style={fill=orange!30}]{4e. Doc. técnica (20 h)}{2026-09-29}{2026-10-20}
+    \end{ganttchart}%
+  }% end resizebox
+  \end{center}
+  \caption{Diagrama de Gantt, parte 1/2: grupos 1--4 (3 de marzo de 2026 -- 20 de enero de 2027). Unidades: días calendario. Disponibilidad: 15 h semanales. Colores: \textcolor{gray!80}{$\blacksquare$} Gestión, \textcolor{blue!60}{$\blacksquare$} Investigación, \textcolor{green!60}{$\blacksquare$} Datos, \textcolor{orange!70}{$\blacksquare$} Modelo CV.}
+  \label{fig:gantt1}
+\end{figure}
+\end{landscape}
+
+\begin{landscape}
+\begin{figure}[htpb]
+  \begin{center}
+  \resizebox{\linewidth}{!}{%
+    \begin{ganttchart}[
+      time slot unit=day,
+      time slot format=isodate,
+      x unit=0.040cm,
+      y unit title=0.55cm,
+      y unit chart=0.45cm,
+      milestone/.append style={xscale=4},
+      bar label font=\scriptsize,
+      group label font=\scriptsize\bfseries,
+      title label font=\scriptsize,
+      milestone label font=\scriptsize\itshape,
+      bar height=0.65,
+      group right shift=0,
+      group top shift=0.7,
+      group height=0.3
+      ]{2026-03-03}{2027-01-20}
+      \gantttitlecalendar*{2026-03-03}{2027-01-20}{year} \\
+      \gantttitlecalendar*{2026-03-03}{2027-01-20}{month} \\
       %%% Grupo 5 - Porciones
       \ganttgroup[group/.append style={fill=red!50, draw=red!70}]{5. Porciones (100 h)}{2026-03-31}{2026-10-20} \\
       \ganttbar[bar/.append style={fill=red!25}]{5a. Inv. técnicas (20 h)}{2026-03-31}{2026-04-21} \\
@@ -451,8 +508,8 @@ En la figura~\ref{fig:gantt} se presenta el diagrama de Gantt del proyecto. Las 
     \end{ganttchart}%
   }% end resizebox
   \end{center}
-  \caption{Diagrama de Gantt del proyecto (3 de marzo de 2026 -- 20 de enero de 2027). Unidades: días calendario. Disponibilidad: 15 h semanales. Colores: \textcolor{gray!80}{$\blacksquare$} Gestión, \textcolor{blue!60}{$\blacksquare$} Investigación, \textcolor{green!60}{$\blacksquare$} Datos, \textcolor{orange!70}{$\blacksquare$} Modelo CV, \textcolor{red!60}{$\blacksquare$} Porciones, \textcolor{violet!60}{$\blacksquare$} BD nutricional, \textcolor{cyan!70}{$\blacksquare$} App iOS, \textcolor{yellow!70}{$\blacksquare$} Documentación.}
-  \label{fig:gantt}
+  \caption{Diagrama de Gantt, parte 2/2: grupos 5--8 (3 de marzo de 2026 -- 20 de enero de 2027). Unidades: días calendario. Disponibilidad: 15 h semanales. Colores: \textcolor{red!60}{$\blacksquare$} Porciones, \textcolor{violet!60}{$\blacksquare$} BD nutricional, \textcolor{cyan!70}{$\blacksquare$} App iOS, \textcolor{yellow!70}{$\blacksquare$} Documentación.}
+  \label{fig:gantt2}
 \end{figure}
 \end{landscape}
 
@@ -561,9 +618,9 @@ Riesgo & S & O & RPN & S* & O* & RPN* \\ \hline
 1. Datasets no representativos de cocina local        & 7 & 7 & 49 & 7 & 3 & 21 \\ \hline
 2. Rendimiento insuficiente del modelo de CV          & 8 & 5 & 40 & 8 & 3 & 24 \\ \hline
 3. Error de estimación de porciones $>$ 30\,\%        & 7 & 6 & 42 & 7 & 3 & 21 \\ \hline
-4. Disponibilidad de tiempo $<$ 15\,h/semana          & 5 & 4 & 20 & 5 & 3 & 15 \\ \hline
+4. Disponibilidad de tiempo $<$ 15\,h/semana          & 5 & 4 & 20 & - & - & - \\ \hline
 5. Latencia del \textit{pipeline} $>$ 30\,s           & 6 & 5 & 30 & 6 & 2 & 12 \\ \hline
-6. Cambio \textit{breaking} en API de BD nutricional  & 4 & 3 & 12 & 4 & 2 &  8 \\ \hline
+6. Cambio \textit{breaking} en API de BD nutricional  & 4 & 3 & 12 & - & - &  - \\ \hline
 \end{tabularx}%
 \end{table}
 
@@ -684,7 +741,7 @@ El responsable elaborará un documento de lecciones aprendidas en los 15 días p
 	\item[b)] Descripción de los problemas más significativos que surgieron durante el desarrollo (técnicos, de datos, de cronograma) y cómo fueron resueltos o gestionados.
 	\item[c)] Recomendaciones para futuros trabajos que aborden sistemas similares de reconocimiento de alimentos en contextos locales.
 \end{itemize}
-Este documento quedará como anexo del repositorio de código fuente (sección \texttt{docs/lecciones\_aprendidas.md}) y como parte de la memoria del Trabajo Final.
+Este documento quedará como anexo del repositorio de código fuente (sección \path{docs/lecciones_aprendidas.md}) y como parte de la memoria del Trabajo Final.
 
 \item \textbf{Acto de agradecimiento.}
 El responsable del proyecto organizará un encuentro informal (desayuno o almuerzo) de agradecimiento destinado al director del Trabajo Final, a los colaboradores que participaron en la recolección y anotación de imágenes locales, y a los licenciados en nutrición que colaboraron en la validación clínica del sistema. El acto se realizará dentro de los 30 días posteriores a la defensa oral. Los gastos del encuentro serán financiados íntegramente por el responsable del proyecto.
