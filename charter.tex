@@ -5,7 +5,7 @@
 
 
 % El títulos de la memoria, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \ttitle
-\titulo{Control nutricional basado en IA} 
+\titulo{Control nutricional basado en inteligencia artificial} 
 
 % Nombre del posgrado, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \degreename
 \posgrado{Carrera de Especialización en Inteligencia Artificial}
@@ -58,7 +58,7 @@ Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios 
 0      & Creación del documento                                 &\fechaInicioName \\ \hline
 1      & Se completa hasta el punto 5 inclusive                & 15 de marzo de 2026 \\ \hline
 2      & Se completa hasta el punto 9 inclusive                & 18 de marzo de 2026 \\ \hline
-%3      & Se completa hasta el punto 12 inclusive                & {día} de {mes} de 202X \\ \hline
+3      & Se completa hasta el punto 12 inclusive               & 30 de marzo de 2026 \\ \hline
 %4      & Se completa el plan	                                 & {día} de {mes} de 202X \\ \hline
 
 % Si hay más correcciones pasada la versión 4 también se deben especificar acá
@@ -79,7 +79,7 @@ Buenos Aires, \fechaInicioName
 
 \vspace{2cm}
 
-Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'' y consistirá en el desarrollo de un prototipo de aplicación móvil que utiliza visión por computadora e inteligencia artificial para analizar fotografías de alimentos, identificar sus componentes, estimar porciones y generar registros nutricionales automáticos. El trabajo tendrá un presupuesto preliminar estimado de 600 horas y un costo estimado de \textcolor{red}{\$ XXX}, con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública el \fechaFinalName.
+Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'' y consistirá en el desarrollo de un prototipo de aplicación móvil que utiliza visión por computadora e inteligencia artificial para analizar fotografías de alimentos, identificar sus componentes, estimar porciones y generar registros nutricionales automáticos. El trabajo tendrá un presupuesto preliminar estimado de 680 horas y un costo estimado de \textcolor{red}{\$ XXX}, con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública en \fechaFinalName.
 
 Se adjunta a esta acta la planificación inicial.
 
@@ -112,7 +112,7 @@ En la figura \ref{fig:diagBloques} se presenta el diagrama en bloques del sistem
 
 \begin{figure}[htpb]
 \centering
-\includegraphics[width=.65\textwidth]{./Figuras/diagBloques.png}
+\includegraphics[width=.85\textwidth]{./Figuras/diagBloques.png}
 \caption{Diagrama en bloques del sistema.}
 \label{fig:diagBloques}
 \end{figure}
@@ -232,6 +232,10 @@ Para el desarrollo del presente proyecto se supone que:
 		\begin{enumerate}
 			\item[RIO1] El módulo de consulta nutricional debe integrarse con al menos una base de datos nutricional pública mediante API o dataset local.
 		\end{enumerate}
+	\item Requerimientos regulatorios:
+		\begin{enumerate}
+			\item[RReg1] El sistema debe tratar los datos personales de los usuarios (imágenes de alimentos e historial nutricional) en conformidad con la Ley~25.326 de Protección de Datos Personales de la República Argentina.
+		\end{enumerate}
 \end{enumerate}
 
 \section{7. Historias de usuarios (\textit{Product backlog})}
@@ -240,19 +244,19 @@ Para el desarrollo del presente proyecto se supone que:
 El criterio para calcular los \textit{story points} es: SP = complejidad (1--5) + dificultad (1--5) + incertidumbre (1--5), con un máximo posible de 15 puntos.
 
 \begin{enumerate}
-\item ``Como persona en seguimiento nutricional, quiero fotografiar mi comida y obtener automáticamente su contenido nutricional, para registrar mi ingesta sin necesidad de búsqueda manual."
+\item ``Como usuario final, quiero fotografiar mi comida y obtener automáticamente su contenido nutricional, para registrar mi ingesta sin necesidad de búsqueda manual."
 
 \textit{Story points}: 13 (complejidad: 5, dificultad: 4, incertidumbre: 4)
 
-\item ``Como persona en seguimiento nutricional, quiero ver los macronutrientes de cada comida registrada, para monitorear si estoy cumpliendo mi plan dietético."
+\item ``Como usuario final, quiero ver los macronutrientes de cada comida registrada, para monitorear si estoy cumpliendo mi plan dietético."
 
 \textit{Story points}: 3 (complejidad: 1, dificultad: 1, incertidumbre: 1)
 
-\item ``Como persona en seguimiento nutricional, quiero consultar mi historial nutricional de los últimos 7 días, para hacer seguimiento de mi progreso a lo largo del tiempo."
+\item ``Como usuario final, quiero consultar mi historial nutricional de los últimos 7 días, para hacer seguimiento de mi progreso a lo largo del tiempo."
 
 \textit{Story points}: 4 (complejidad: 2, dificultad: 1, incertidumbre: 1)
 
-\item ``Como persona en seguimiento nutricional, quiero poder corregir los alimentos identificados por el sistema cuando el reconocimiento sea incorrecto, para asegurar la exactitud de mis registros."
+\item ``Como usuario final, quiero poder corregir los alimentos identificados por el sistema cuando el reconocimiento sea incorrecto, para asegurar la exactitud de mis registros."
 
 \textit{Story points}: 6 (complejidad: 2, dificultad: 2, incertidumbre: 2)
 
@@ -326,197 +330,232 @@ Los entregables del proyecto son:
 	\item Integración del backend de IA con la app (25 h)
 	\item Pruebas de integración y correcciones (15 h)
 	\end{enumerate}
-\item Documentación y memoria del Trabajo Final (50 h)
+\item Documentación y memoria del Trabajo Final (130 h)
 	\begin{enumerate}
-	\item Redacción de la memoria (versión 1) (20 h)
-	\item Revisión y corrección con el director (versión 2) (15 h)
-	\item Versión final y preparación de la presentación (15 h)
+	\item Redacción de la memoria (versión 1) (25 h)
+	\item Revisión y corrección con el director (versión 2) (50 h)
+	\item Versión final y preparación de la presentación (30 h)
+	\item Preparación y práctica de la defensa oral (25 h)
 	\end{enumerate}
 \end{enumerate}
 
-Cantidad total de horas: 600 h.
+Cantidad total de horas: 680 h.
 
 \section{10. Diagrama de Activity On Node}
 \label{sec:AoN}
 
-\begin{consigna}{red}
-Armar el AoN a partir del WBS definido en la etapa anterior.
+En las figuras~\ref{fig:AoN1} a \ref{fig:AoN4} se presenta el diagrama \textit{Activity on Node} construido a partir del WBS de la sección~\ref{sec:wbs}. Los tiempos están expresados en horas. Los nodos del camino crítico se indican en rojo.
 
-Una herramienta simple para desarrollar los diagramas es el Draw.io (\url{https://app.diagrams.net/}).
-\href{https://app.diagrams.net}{Draw.io}
-
-
-\begin{figure}[htpb]
-\centering 
-\includegraphics[width=.8\textwidth]{./Figuras/AoN.png}
-\caption{Diagrama de \textit{Activity on Node}.}
-\label{fig:AoN}
+\begin{landscape}
+\begin{figure}[p]
+\centering
+\includegraphics[width=\linewidth, keepaspectratio]{./Figuras/AoN_parte_1.png}
+\caption{Diagrama de \textit{Activity on Node} (1/4). Tiempos en horas.}
+\label{fig:AoN1}
 \end{figure}
+\end{landscape}
 
-Indicar claramente en qué unidades están expresados los tiempos.
-De ser necesario indicar los caminos semi críticos y analizar sus tiempos mediante un cuadro.
-Es recomendable usar colores y un cuadro indicativo describiendo qué representa cada color.
+\begin{landscape}
+\begin{figure}[p]
+\centering
+\includegraphics[width=\linewidth, keepaspectratio]{./Figuras/AoN_parte_2.png}
+\caption{Diagrama de \textit{Activity on Node} (2/4).}
+\label{fig:AoN2}
+\end{figure}
+\end{landscape}
 
-\end{consigna}
+\begin{landscape}
+\begin{figure}[p]
+\centering
+\includegraphics[width=\linewidth, keepaspectratio]{./Figuras/AoN_parte_3.png}
+\caption{Diagrama de \textit{Activity on Node} (3/4).}
+\label{fig:AoN3}
+\end{figure}
+\end{landscape}
+
+\begin{landscape}
+\begin{figure}[p]
+\centering
+\includegraphics[width=\linewidth, keepaspectratio]{./Figuras/AoN_parte_4.png}
+\caption{Diagrama de \textit{Activity on Node} (4/4). Camino crítico (rojo): 2a $\rightarrow$ 2c $\rightarrow$ 3a $\rightarrow$ 3b $\rightarrow$ 3d $\rightarrow$ 4b $\rightarrow$ 4c $\rightarrow$ 4d $\rightarrow$ 5d $\rightarrow$ 7c $\rightarrow$ 7d $\rightarrow$ 8a $\rightarrow$ 8b $\rightarrow$ 8c $\rightarrow$ 8d, con una duración acumulada de 370 h.}
+\label{fig:AoN4}
+\end{figure}
+\end{landscape}
+
+El camino crítico tiene una duración de 370 h. La tabla~\ref{tab:caminos} resume el camino crítico y los dos caminos semicríticos con mayor duración.
+
+\begin{table}[htpb]
+\centering
+\caption{Camino crítico y caminos semicríticos (duración en horas).}
+\label{tab:caminos}
+{\footnotesize
+\begin{tabularx}{\linewidth}{@{}|l|X|c|c|@{}}
+\hline
+\rowcolor[HTML]{C0C0C0}
+Camino & Secuencia de tareas & Dur. (h) & Holgura \\ \hline
+Crítico       & 2a $\to$ 2c $\to$ 3a $\to$ 3b $\to$ 3d $\to$ 4b $\to$ 4c $\to$ 4d $\to$ 5d $\to$ 7c $\to$ 7d $\to$ 8a $\to$ 8b $\to$ 8c $\to$ 8d & 370 & 0 h \\ \hline
+Semicrítico 1 & \textbf{2b} $\to$ 2c $\to$ 3a $\to$ 3b $\to$ 3d $\to$ 4b $\to$ 4c $\to$ 4d $\to$ 5d $\to$ 7c $\to$ 7d $\to$ 8a $\to$ 8b $\to$ 8c $\to$ 8d & 365 & 5 h \\ \hline
+Semicrítico 2 & 2a $\to$ 2c $\to$ \textbf{3c} $\to$ 3d $\to$ 4b $\to$ 4c $\to$ 4d $\to$ 5d $\to$ 7c $\to$ 7d $\to$ 8a $\to$ 8b $\to$ 8c $\to$ 8d & 365 & 5 h \\ \hline
+\end{tabularx}
+}
+\end{table}
 
 \section{11. Diagrama de Gantt}
 \label{sec:gantt}
 
-\begin{consigna}{red}
-Existen muchos programas y recursos \textit{online} para hacer diagramas de Gantt, entre los cuales destacamos:
-
-\begin{itemize}
-\item Planner
-\item GanttProject
-\item Trello + \textit{plugins}. En el siguiente link hay un tutorial oficial: \\ \url{https://blog.trello.com/es/diagrama-de-gantt-de-un-proyecto}
-\item Creately, herramienta online colaborativa. \\\url{https://creately.com/diagram/example/ieb3p3ml/LaTeX}
-\item Se puede hacer en latex con el paquete \textit{pgfgantt}\\ \url{http://ctan.dcc.uchile.cl/graphics/pgf/contrib/pgfgantt/pgfgantt.pdf}
-\end{itemize}
-
-Pegar acá una captura de pantalla del diagrama de Gantt, cuidando que la letra sea suficientemente grande como para ser legible. 
-Si el diagrama queda demasiado ancho, se puede pegar primero la ``tabla'' del Gantt y luego pegar la parte del diagrama de barras del diagrama de Gantt.
-
-Configurar el software para que en la parte de la tabla muestre los códigos del EDT (WBS).\\
-Configurar el software para que al lado de cada barra muestre el nombre de cada tarea.\\
-Revisar que la fecha de finalización coincida con lo indicado en el Acta Constitutiva.
-
-En la figura \ref{fig:gantt}, se muestra un ejemplo de diagrama de gantt realizado con el paquete de \textit{pgfgantt}. 
-En la plantilla pueden ver el código que lo genera y usarlo de base para construir el propio.
-
-Las fechas pueden ser calculadas utilizando alguna de las herramientas antes citadas. Sin embargo, el siguiente ejemplo
-fue elaborado utilizando 
-\href{https://docs.google.com/spreadsheets/d/1fBz8NhSpc4tkkhz3KjJCbh1nR_ltDkfEcZi4tZXduqs}{esta hoja de cálculo}.
-
-Es importante destacar que el ancho del diagrama estará dado por la longitud del texto utilizado para las tareas 
-(Ejemplo: tarea 1, tarea 2, etcétera) y el valor \textit{x unit}. Para mejorar la apariencia del diagrama, es necesario
-ajustar este valor y, quizás, acortar los nombres de las tareas.
-
-\begin{figure}[htpb]
-  \begin{center}
-    \begin{ganttchart}[
-      time slot unit=day,
-      time slot format=isodate,
-      x unit=0.038cm,
-      y unit title=0.7cm,
-      y unit chart=0.6cm,
-      milestone/.append style={xscale=4}
-      ]{2021-03-05}{2021-12-16}
-      \gantttitlecalendar*{2021-03-05}{2021-12-16}{year} \\
-      \gantttitlecalendar*{2021-03-05}{2021-12-16}{month} \\
-      \ganttgroup{Duración Total}{2021-03-05}{2021-12-16} \\
-      %%%%%%%%%%%%%%%%%Organización
-      \ganttgroup{Organización}{2021-03-05}{2021-04-16} \\
-      \ganttbar{Planificación del proyecto}{2021-03-05}{2021-04-15} \\
-      %%%%%%%%%%%%%%%%%Ejecución
-      \ganttgroup{Ejecución}{2021-04-16}{2021-10-21} \\
-      \ganttbar{Tarea 1}{2021-04-16}{2021-04-29} \\
-      \ganttbar{Tarea 2}{2021-04-30}{2021-05-13} \\
-      \ganttbar{Tarea 3}{2021-05-14}{2021-05-27} \\
-      \ganttbar{Tarea 4}{2021-05-28}{2021-07-12} \\
-      \ganttbar{Tarea 5}{2021-07-13}{2021-08-09} \\
-      \ganttbar{Tarea 6}{2021-08-10}{2021-09-23} \\
-      \ganttbar{Tarea 7}{2021-09-24}{2021-09-30} \\
-      \ganttbar{Tarea 8}{2021-10-01}{2021-10-14} \\
-      \ganttbar{Tarea 9}{2021-10-15}{2021-10-21} \\
-      % %%%%%%%%%%%%%%%%%Finalización
-      \ganttgroup{Finalización}{2021-10-22}{2021-12-16} \\
-      \ganttbar{Memoria v1}{2021-10-22}{2021-11-04} \\
-      \ganttbar{Memoria v2}{2021-11-05}{2021-11-18} \\
-      \ganttbar{Memoria final}{2021-11-19}{2021-12-02} \\
-      % La fecha del siguiente milestone es la fecha en que terminamos la memoria
-      \ganttmilestone{Enviar memoria al director}{2021-12-02} \\
-      \ganttbar{Elaborar la presentación}{2021-12-03}{2021-12-16} \\
-      \ganttmilestone{Ensayo de la presentación}{2021-12-16} \\
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \end{ganttchart}
-  \end{center}
-  \caption{Diagrama de gantt de ejemplo}
-  \label{fig:gantt}
-\end{figure}
-
+En las figuras~\ref{fig:gantt1} y~\ref{fig:gantt2} se presenta el diagrama de Gantt del proyecto. Las unidades de tiempo son días calendario y la disponibilidad estimada es de 15 h semanales, lo que equivale a 680 h totales en aproximadamente 45 semanas (3 de marzo de 2026 al 20 de enero de 2027). Los colores identifican cada grupo de tareas del WBS.
 
 \begin{landscape}
 \begin{figure}[htpb]
-\centering 
-\includegraphics[height=.85\textheight]{./Figuras/Gantt-2.png}
-\caption{Ejemplo de diagrama de Gantt (apaisado).} %Modificar este título acorde.
-\label{fig:diagGantt}
+  \begin{center}
+  \resizebox{\linewidth}{!}{%
+    \begin{ganttchart}[
+      time slot unit=day,
+      time slot format=isodate,
+      x unit=0.040cm,
+      y unit title=0.55cm,
+      y unit chart=0.45cm,
+      milestone/.append style={xscale=4},
+      bar label font=\scriptsize,
+      group label font=\scriptsize\bfseries,
+      title label font=\scriptsize,
+      milestone label font=\scriptsize\itshape,
+      bar height=0.65,
+      group right shift=0,
+      group top shift=0.7,
+      group height=0.3
+      ]{2026-03-03}{2027-01-20}
+      \gantttitlecalendar*{2026-03-03}{2027-01-20}{year} \\
+      \gantttitlecalendar*{2026-03-03}{2027-01-20}{month} \\
+      %%% Grupo 1 - Gestión
+      \ganttgroup[group/.append style={fill=gray!60, draw=gray!80}]{1. Gestión (30 h)}{2026-03-03}{2027-01-20} \\
+      \ganttbar[bar/.append style={fill=gray!35}]{1a. Planificación (20 h)}{2026-03-03}{2026-03-24} \\
+      \ganttbar[bar/.append style={fill=gray!25}]{1b. Seguimiento (10 h)}{2026-03-03}{2026-12-22} \\
+      %%% Grupo 2 - Investigación
+      \ganttgroup[group/.append style={fill=blue!55, draw=blue!75}]{2. Investigación (60 h)}{2026-03-03}{2026-04-28} \\
+      \ganttbar[bar/.append style={fill=blue!30}]{2a. Rev. CV (25 h)}{2026-03-03}{2026-04-07} \\
+      \ganttbar[bar/.append style={fill=blue!30}]{2b. Rev. porciones (20 h)}{2026-03-03}{2026-03-31} \\
+      \ganttbar[bar/.append style={fill=blue!30}]{2c. Análisis datasets (15 h)}{2026-04-07}{2026-04-28} \\
+      %%% Grupo 3 - Datos
+      \ganttgroup[group/.append style={fill=green!55, draw=green!75}]{3. Datos (80 h)}{2026-04-28}{2026-06-30} \\
+      \ganttbar[bar/.append style={fill=green!30}]{3a. Descarga datasets (20 h)}{2026-04-28}{2026-05-19} \\
+      \ganttbar[bar/.append style={fill=green!30}]{3b. Limpieza datos (15 h)}{2026-05-19}{2026-06-02} \\
+      \ganttbar[bar/.append style={fill=green!30}]{3c. Imágenes locales (30 h)}{2026-04-28}{2026-06-09} \\
+      \ganttbar[bar/.append style={fill=green!30}]{3d. Pipeline preproc. (15 h)}{2026-06-09}{2026-06-30} \\
+      %%% Grupo 4 - Modelo CV
+      \ganttgroup[group/.append style={fill=orange!55, draw=orange!75}]{4. Modelo CV (130 h)}{2026-04-07}{2026-10-20} \\
+      \ganttbar[bar/.append style={fill=orange!30}]{4a. Selección modelo (20 h)}{2026-04-07}{2026-04-28} \\
+      \ganttbar[bar/.append style={fill=orange!30}]{4b. Entrenamiento (30 h)}{2026-06-30}{2026-07-28} \\
+      \ganttbar[bar/.append style={fill=orange!30}]{4c. Evaluación (20 h)}{2026-07-28}{2026-08-18} \\
+      \ganttbar[bar/.append style={fill=orange!30}]{4d. Iteraciones (40 h)}{2026-08-18}{2026-09-29} \\
+      \ganttbar[bar/.append style={fill=orange!30}]{4e. Doc. técnica (20 h)}{2026-09-29}{2026-10-20}
+    \end{ganttchart}%
+  }% end resizebox
+  \end{center}
+  \caption{Diagrama de Gantt, parte 1/2: grupos 1--4 (3 de marzo de 2026 -- 20 de enero de 2027). Unidades: días calendario. Disponibilidad: 15 h semanales. Colores: \textcolor{gray!80}{$\blacksquare$} Gestión, \textcolor{blue!60}{$\blacksquare$} Investigación, \textcolor{green!60}{$\blacksquare$} Datos, \textcolor{orange!70}{$\blacksquare$} Modelo CV.}
+  \label{fig:gantt1}
 \end{figure}
-
 \end{landscape}
 
-\end{consigna}
+\begin{landscape}
+\begin{figure}[htpb]
+  \begin{center}
+  \resizebox{\linewidth}{!}{%
+    \begin{ganttchart}[
+      time slot unit=day,
+      time slot format=isodate,
+      x unit=0.040cm,
+      y unit title=0.55cm,
+      y unit chart=0.45cm,
+      milestone/.append style={xscale=4},
+      bar label font=\scriptsize,
+      group label font=\scriptsize\bfseries,
+      title label font=\scriptsize,
+      milestone label font=\scriptsize\itshape,
+      bar height=0.65,
+      group right shift=0,
+      group top shift=0.7,
+      group height=0.3
+      ]{2026-03-03}{2027-01-20}
+      \gantttitlecalendar*{2026-03-03}{2027-01-20}{year} \\
+      \gantttitlecalendar*{2026-03-03}{2027-01-20}{month} \\
+      %%% Grupo 5 - Porciones
+      \ganttgroup[group/.append style={fill=red!50, draw=red!70}]{5. Porciones (100 h)}{2026-03-31}{2026-10-20} \\
+      \ganttbar[bar/.append style={fill=red!25}]{5a. Inv. técnicas (20 h)}{2026-03-31}{2026-04-21} \\
+      \ganttbar[bar/.append style={fill=red!25}]{5b. Implementación (40 h)}{2026-06-30}{2026-08-18} \\
+      \ganttbar[bar/.append style={fill=red!25}]{5c. Evaluación (20 h)}{2026-08-18}{2026-09-08} \\
+      \ganttbar[bar/.append style={fill=red!25}]{5d. Integración (20 h)}{2026-09-29}{2026-10-20} \\
+      %%% Grupo 6 - BD nutricional
+      \ganttgroup[group/.append style={fill=violet!50, draw=violet!70}]{6. BD nutricional (50 h)}{2026-04-28}{2026-06-16} \\
+      \ganttbar[bar/.append style={fill=violet!25}]{6a. Eval. BD (15 h)}{2026-04-28}{2026-05-12} \\
+      \ganttbar[bar/.append style={fill=violet!25}]{6b. Wrapper BD (20 h)}{2026-05-12}{2026-06-02} \\
+      \ganttbar[bar/.append style={fill=violet!25}]{6c. Mapeo (15 h)}{2026-06-02}{2026-06-16} \\
+      %%% Grupo 7 - App iOS
+      \ganttgroup[group/.append style={fill=cyan!55, draw=cyan!75}]{7. App iOS (100 h)}{2026-03-24}{2026-12-08} \\
+      \ganttbar[bar/.append style={fill=cyan!30}]{7a. Diseño UI (20 h)}{2026-03-24}{2026-04-14} \\
+      \ganttbar[bar/.append style={fill=cyan!30}]{7b. Frontend iOS (40 h)}{2026-09-29}{2026-11-10} \\
+      \ganttbar[bar/.append style={fill=cyan!30}]{7c. Integración IA (25 h)}{2026-11-10}{2026-12-01} \\
+      \ganttbar[bar/.append style={fill=cyan!30}]{7d. Pruebas (15 h)}{2026-12-01}{2026-12-08} \\
+      %%% Grupo 8 - Documentación
+      \ganttgroup[group/.append style={fill=yellow!60, draw=yellow!80}]{8. Documentación (130 h)}{2026-10-20}{2027-01-20} \\
+      \ganttbar[bar/.append style={fill=yellow!35}]{8a. Memoria v1 (25 h)}{2026-10-20}{2026-11-10} \\
+      \ganttbar[bar/.append style={fill=yellow!35}]{8b. Revisión director (50 h)}{2026-11-10}{2026-12-15} \\
+      \ganttbar[bar/.append style={fill=yellow!35}]{8c. Versión final (30 h)}{2026-12-15}{2027-01-05} \\
+      \ganttbar[bar/.append style={fill=yellow!35}]{8d. Defensa oral (25 h)}{2027-01-05}{2027-01-20} \\
+      %%% Milestones
+      \ganttmilestone{Entrega GdP}{2026-04-21} \\
+      \ganttmilestone{Defensa pública}{2027-01-20}
+    \end{ganttchart}%
+  }% end resizebox
+  \end{center}
+  \caption{Diagrama de Gantt, parte 2/2: grupos 5--8 (3 de marzo de 2026 -- 20 de enero de 2027). Unidades: días calendario. Disponibilidad: 15 h semanales. Colores: \textcolor{red!60}{$\blacksquare$} Porciones, \textcolor{violet!60}{$\blacksquare$} BD nutricional, \textcolor{cyan!70}{$\blacksquare$} App iOS, \textcolor{yellow!70}{$\blacksquare$} Documentación.}
+  \label{fig:gantt2}
+\end{figure}
+\end{landscape}
 
 
 \section{12. Presupuesto detallado del proyecto}
 \label{sec:presupuesto}
 
-\begin{consigna}{red}
-Si el proyecto es complejo entonces separarlo en partes:
-\begin{itemize}
-	\item Un total global, indicando el subtotal acumulado por cada una de las áreas.
-	\item El desglose detallado del subtotal de cada una de las áreas.
-\end{itemize}
-
-IMPORTANTE: No olvidarse de considerar los COSTOS INDIRECTOS.
-
-Incluir la aclaración de si se emplea como moneda el peso argentino (ARS) o si se usa moneda extranjera (USD, EUR, etc). Si es en moneda extranjera se debe indicar la tasa de conversión respecto a la moneda local en una fecha dada.
-
-\end{consigna}
+Los costos se expresan en pesos argentinos (ARS). La tabla detalla los costos directos e indirectos del proyecto. Los costos indirectos se estiman como el 20\,\% del subtotal directo. Los ítems sin costo adicional (licencias de software, dispositivo iOS propio y acceso bibliográfico institucional/arXiv) no se incluyen en la tabla ya que no generan erogaciones.
 
 \begin{table}[htpb]
 \centering
 \begin{tabularx}{\linewidth}{@{}|X|c|r|r|@{}}
 \hline
-\rowcolor[HTML]{C0C0C0} 
+\rowcolor[HTML]{C0C0C0}
 \multicolumn{4}{|c|}{\cellcolor[HTML]{C0C0C0}COSTOS DIRECTOS} \\ \hline
-\rowcolor[HTML]{C0C0C0} 
+\rowcolor[HTML]{C0C0C0}
 Descripción &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Cantidad} &
-  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor unitario} &
-  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor total} \\ \hline
- &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} \\ \hline
- &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
-\multicolumn{3}{|c|}{SUBTOTAL} &
-  \multicolumn{1}{c|}{} \\ \hline
-\rowcolor[HTML]{C0C0C0} 
+  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor unitario (ARS)} &
+  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor total (ARS)} \\ \hline
+Cómputo GPU en la nube (Google Colab Pro, USD~9,99/mes\footnote{Tipo de cambio dólar blue: \$1.415 ARS/USD al 30/03/2026.}) &
+  9 meses &
+  \$ 14.136/mes &
+  \$ 127.224 \\ \hline
+\multicolumn{3}{|c|}{SUBTOTAL DIRECTO} &
+  \$ 127.224 \\ \hline
+\rowcolor[HTML]{C0C0C0}
 \multicolumn{4}{|c|}{\cellcolor[HTML]{C0C0C0}COSTOS INDIRECTOS} \\ \hline
-\rowcolor[HTML]{C0C0C0} 
+\rowcolor[HTML]{C0C0C0}
 Descripción &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Cantidad} &
-  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor unitario} &
-  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor total} \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
-\multicolumn{3}{|c|}{SUBTOTAL} &
-  \multicolumn{1}{c|}{} \\ \hline
+  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor unitario (ARS)} &
+  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor total (ARS)} \\ \hline
+Electricidad e internet (parte proporcional\footnote{MacBook M1 a 30\,W durante 3,5\,h/día hábil $\approx$ 2,31\,kWh/mes; tarifa R2/R3 sin subsidio: \$115,29/kWh (ENRE/Edesur, mar.~2026). Internet 300\,Mbps: \$77.510/mes × 10,7\,\% de uso proporcional. Total: \$8.560/mes.}) &
+  9 meses &
+  \$ 8.560/mes &
+  \$ 77.040 \\ \hline
+Amortización de hardware (MacBook Pro M1 16\,GB, vida útil 5 años\footnote{Valor de reposición usado: \$1.850.000 (MercadoLibre Argentina, mar.~2026). Amortización: \$1.850.000 / 60 meses = \$30.833/mes.}) &
+  9 meses &
+  \$ 30.833/mes &
+  \$ 277.497 \\ \hline
+\multicolumn{3}{|c|}{SUBTOTAL INDIRECTO} &
+  \$ 354.537 \\ \hline
 \rowcolor[HTML]{C0C0C0}
 \multicolumn{3}{|c|}{TOTAL} &
-   \\ \hline
+  \$ 481.761 \\ \hline
 \end{tabularx}%
 \end{table}
 
@@ -524,114 +563,190 @@ Descripción &
 \section{13. Gestión de riesgos}
 \label{sec:riesgos}
 
-\begin{consigna}{red}
-a) Identificación de los riesgos (al menos cinco) y estimación de sus consecuencias:
- 
-Riesgo 1: detallar el riesgo (riesgo es algo que si ocurre altera los planes previstos de forma negativa)
-\begin{itemize}
-	\item Severidad (S): mientras más severo, más alto es el número (usar números del 1 al 10).\\
-	Justificar el motivo por el cual se asigna determinado número de severidad (S).
-	\item Probabilidad de ocurrencia (O): mientras más probable, más alto es el número (usar del 1 al 10).\\
-	Justificar el motivo por el cual se asigna determinado número de (O). 
-\end{itemize}   
+a) Identificación de los riesgos y estimación de sus consecuencias:
 
-Riesgo 2:
+\paragraph{Riesgo 1: Baja representatividad de los \textit{datasets} públicos para alimentos del contexto local argentino.}
+Los conjuntos de datos públicos como Food-101 contienen predominantemente alimentos de cocinas occidentales anglosajonas y tienen escasa cobertura de platos típicos argentinos (empanadas, locro, asado, milanesas). Si el modelo se entrena sin imágenes locales suficientes, su precisión real en producción podría ser considerablemente menor a la observada sobre el \textit{benchmark} estándar, comprometiendo RF3.
 \begin{itemize}
-	\item Severidad (S): X.\\
-	Justificación...
-	\item Ocurrencia (O): Y.\\
-	Justificación...
+	\item Severidad (S): 7. Un modelo que no reconoce alimentos locales pierde la mayor parte de su utilidad para el usuario objetivo, que registra mayoritariamente gastronomía argentina.
+	\item Ocurrencia (O): 7. Es muy probable dado que los \textit{datasets} públicos de referencia fueron construidos en contextos anglosajones y la proporción de platos locales es marginal.
 \end{itemize}
 
-Riesgo 3:
+\paragraph{Riesgo 2: Rendimiento insuficiente del modelo de CV (\textit{top-1} $<$ 75\,\% sobre imágenes locales).}
+Aunque los modelos modernos superan el 91\,\% en Food-101, su transferencia a imágenes locales con menor volumen de datos puede resultar en una performance significativamente inferior. El incumplimiento de RF3 implicaría rediseñar la estrategia de modelo o de datos, con impacto directo en el cronograma.
 \begin{itemize}
-	\item Severidad (S):  X.\\
-	Justificación...
-	\item Ocurrencia (O): Y.\\
-	Justificación...
+	\item Severidad (S): 8. Incumplir el requerimiento central del sistema impide validar la hipótesis técnica del proyecto y compromete la totalidad de los entregables dependientes.
+	\item Ocurrencia (O): 5. Existe evidencia en el estado del arte de una brecha entre \textit{benchmarks} controlados y desempeño real (CALO mama estimó correctamente solo 11 de 30 nutrientes evaluados~\cite{nakamura2022calomama}).
 \end{itemize}
 
+\paragraph{Riesgo 3: Error en la estimación de porciones superior al límite establecido ($>30\,\%$).}
+La estimación de volumen a partir de imágenes monoculares sin referencia física es uno de los problemas más abiertos del estado del arte; los errores reportados oscilan entre el 10\,\% y el 33\,\%~\cite{martinezgarcia2023}. Es posible que no se alcance el umbral de RF4 con las técnicas seleccionadas.
+\begin{itemize}
+	\item Severidad (S): 7. Sin estimación de porciones confiable el valor nutricional calculado es inexacto, reduciendo la utilidad clínica del sistema para seguimiento dietético.
+	\item Ocurrencia (O): 6. El límite del 30\,\% se sitúa en el extremo superior del rango reportado en la literatura para imágenes monoculares sin referencia.
+\end{itemize}
 
-b) Tabla de gestión de riesgos:      (El RPN se calcula como RPN=SxO)
+\paragraph{Riesgo 4: Disponibilidad de tiempo efectiva por debajo de las 15\,h semanales comprometidas.}
+El proyecto se desarrolla de forma individual en paralelo a compromisos laborales. Imprevistos laborales o personales podrían reducir la disponibilidad real, generando retrasos en el cronograma, especialmente en las tareas del camino crítico.
+\begin{itemize}
+	\item Severidad (S): 5. Un retraso acumulado de varias semanas afectaría tareas del camino crítico, aunque algunas actividades disponen de holgura suficiente para absorber demoras moderadas.
+	\item Ocurrencia (O): 4. Moderadamente probable dado el contexto de trabajo profesional simultáneo durante todo el período del proyecto.
+\end{itemize}
+
+\paragraph{Riesgo 5: Latencia del \textit{pipeline} completo mayor a 30\,s en dispositivo móvil.}
+El \textit{pipeline} integra inferencia CV + estimación de porciones + consulta de BD nutricional. En un \textit{smartphone} sin GPU dedicada, la inferencia local de un modelo ViT podría superar el requisito de RF10 y degradar significativamente la experiencia de usuario.
+\begin{itemize}
+	\item Severidad (S): 6. Superar los 30\,s desmotiva el uso cotidiano del sistema, que depende de la adherencia del usuario para su valor como herramienta de seguimiento.
+	\item Ocurrencia (O): 5. Los modelos ViT tienen alta demanda computacional; sin optimización (cuantización, ejecución en servidor) es probable que superen el umbral en dispositivos de gama media.
+\end{itemize}
+
+\paragraph{Riesgo 6: Descontinuación o cambio \textit{breaking} en la API de la base de datos nutricional pública.}
+USDA FoodData Central y Open Food Facts han experimentado cambios en sus APIs en el pasado. Una modificación durante el desarrollo podría inutilizar la capa de integración implementada.
+\begin{itemize}
+	\item Severidad (S): 4. Afecta la integración pero es relativamente sencillo adaptar la capa de consulta a otra fuente de datos o a una versión actualizada de la API.
+	\item Ocurrencia (O): 3. Los cambios \textit{breaking} en estas APIs son poco frecuentes, pero posibles en un horizonte de desarrollo de 10 meses.
+\end{itemize}
+
+b) Tabla de gestión de riesgos (RPN = S $\times$ O):
 
 \begin{table}[htpb]
 \centering
 \begin{tabularx}{\linewidth}{@{}|X|c|c|c|c|c|c|@{}}
 \hline
-\rowcolor[HTML]{C0C0C0} 
+\rowcolor[HTML]{C0C0C0}
 Riesgo & S & O & RPN & S* & O* & RPN* \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
+1. Datasets no representativos de cocina local        & 7 & 7 & 49 & 7 & 3 & 21 \\ \hline
+2. Rendimiento insuficiente del modelo de CV          & 8 & 5 & 40 & 8 & 3 & 24 \\ \hline
+3. Error de estimación de porciones $>$ 30\,\%        & 7 & 6 & 42 & 7 & 3 & 21 \\ \hline
+4. Disponibilidad de tiempo $<$ 15\,h/semana          & 5 & 4 & 20 & - & - & - \\ \hline
+5. Latencia del \textit{pipeline} $>$ 30\,s           & 6 & 5 & 30 & 6 & 2 & 12 \\ \hline
+6. Cambio \textit{breaking} en API de BD nutricional  & 4 & 3 & 12 & - & - &  - \\ \hline
 \end{tabularx}%
 \end{table}
 
-Criterio adoptado: 
+Criterio adoptado: se tomarán medidas de mitigación en los riesgos cuyos RPN sean mayores a \textbf{25}. Con este criterio, los riesgos 1, 2, 3 y 5 requieren plan de mitigación. Los valores marcados con (*) corresponden luego de haber aplicado la mitigación.
 
-Se tomarán medidas de mitigación en los riesgos cuyos números de RPN sean mayores a...
+c) Plan de mitigación de los riesgos que superan el RPN máximo establecido:
 
-Nota: los valores marcados con (*) en la tabla corresponden luego de haber aplicado la mitigación.
+\paragraph{Riesgo 1 --- plan de mitigación.}
+Se dedicará la tarea 3c del WBS (30\,h) a la recolección y anotación manual de imágenes de platos típicos argentinos. Se aplicarán técnicas de \textit{data augmentation} específicas para estas categorías (rotación, cambios de iluminación, recortes) a fin de ampliar artificialmente el subconjunto local. El modelo se evaluará sobre un \textit{test set} exclusivamente compuesto por imágenes locales.
+\begin{itemize}
+	\item Severidad (S*): 7. La severidad no cambia; si el modelo igualmente falla en alimentos locales, el impacto es el mismo.
+	\item Ocurrencia (O*): 3. La recolección activa de imágenes locales reduce considerablemente la probabilidad de que el dataset sea insuficiente para el contexto objetivo.
+\end{itemize}
 
-c) Plan de mitigación de los riesgos que originalmente excedían el RPN máximo establecido:
- 
-Riesgo 1: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
-  Nueva asignación de S y O, con su respectiva justificación:
-  \begin{itemize}
-	\item Severidad (S*): mientras más severo, más alto es el número (usar números del 1 al 10).
-          Justificar el motivo por el cual se asigna determinado número de severidad (S).
-	\item Probabilidad de ocurrencia (O*): mientras más probable, más alto es el número (usar del 1 al 10).
-          Justificar el motivo por el cual se asigna determinado número de (O).
-	\end{itemize}
+\paragraph{Riesgo 2 --- plan de mitigación.}
+Se planificarán iteraciones explícitas de ajuste de hiperparámetros y experimentación con arquitecturas alternativas (tarea 4d, 40\,h). Se definirán criterios de aceptación intermedios en cada hito de evaluación. Si al finalizar las iteraciones no se alcanza el umbral del 75\,\%, la limitación se documenta formalmente en la memoria y se propone como trabajo futuro.
+\begin{itemize}
+	\item Severidad (S*): 8. No cambia; incumplir el requerimiento principal sigue siendo severo.
+	\item Ocurrencia (O*): 3. Las iteraciones planificadas y la estrategia de documentar como limitación (en lugar de dejar el requerimiento sin tratamiento) reducen el riesgo de que la situación quede sin respuesta.
+\end{itemize}
 
-Riesgo 2: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
- 
-Riesgo 3: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
+\paragraph{Riesgo 3 --- plan de mitigación.}
+Durante la tarea 5a (investigación de técnicas, 20\,h) se priorizará el estudio de métodos con referencia visual. El diseño de la interfaz de la app incorporará la opción de incluir un objeto de referencia de tamaño conocido (moneda de \$10, cubierto estándar) en el encuadre del plato para resolver la ambigüedad de escala. Si aun así el error supera el 30\,\%, se documentará la limitación y se propone trabajo futuro con sensores de profundidad (LiDAR disponible en modelos iPhone Pro).
+\begin{itemize}
+	\item Severidad (S*): 7. No cambia; el impacto sigue siendo alto si el error es excesivo.
+	\item Ocurrencia (O*): 3. La referencia física en imagen elimina el principal factor de error en la estimación monocular, reduciendo sustancialmente la probabilidad de superar el umbral.
+\end{itemize}
 
-\end{consigna}
+\paragraph{Riesgo 5 --- plan de mitigación.}
+El \textit{pipeline} de inferencia se diseñará con arquitectura cliente-servidor: la app móvil envía la imagen a un \textit{backend} REST (desplegado en la nube, p.\,ej. Google Cloud Run) que ejecuta los modelos y retorna el resultado. Esto traslada la carga computacional fuera del dispositivo y hace la latencia predecible y controlable. Se acepta la dependencia de conectividad como condición de uso del prototipo.
+\begin{itemize}
+	\item Severidad (S*): 6. No cambia; una latencia elevada seguiría siendo problemática.
+	\item Ocurrencia (O*): 2. La arquitectura cliente-servidor hace que la latencia dependa principalmente del ancho de banda de red, que puede optimizarse independientemente del modelo, tornando muy improbable superar los 30\,s en condiciones normales.
+\end{itemize}
 
 
 \section{14. Gestión de la calidad}
 \label{sec:calidad}
 
-\begin{consigna}{red}
-Elija al menos diez requerimientos que a su criterio sean los más importantes/críticos/que aportan más valor y para cada uno de ellos indique las acciones de verificación y validación que permitan asegurar su cumplimiento.
-
-\begin{itemize} 
-\item Req \#1: copiar acá el requerimiento con su correspondiente número.
+Se seleccionaron los diez requerimientos de mayor criticidad para el proyecto. Las acciones de verificación tratan al sistema como caja blanca; las de validación, como caja negra.
 
 \begin{itemize}
-	\item Verificación para confirmar si se cumplió con lo requerido antes de mostrar el sistema al cliente. Detallar.
-	\item Validación con el cliente para confirmar que está de acuerdo en que se cumplió con lo requerido. Detallar. 
+
+\item \textbf{RF1} --- La app debe permitir al usuario capturar o seleccionar una fotografía de su comida.
+\begin{itemize}
+	\item Verificación: prueba unitaria del componente de captura/selección en el simulador iOS. Se verifica que el flujo de \texttt{PhotosUI} retorna correctamente un objeto imagen en ambos modos (cámara y biblioteca de fotos), incluyendo el caso de rechazo de permiso.
+	\item Validación: sesión de prueba de usabilidad con tres usuarios representativos. Se observa que cada uno logra fotografiar o seleccionar un plato sin asistencia ni instrucciones adicionales en el primer intento.
+\end{itemize}
+
+\item \textbf{RF2} --- El módulo de CV debe identificar al menos 5 componentes alimentarios distintos en una misma imagen.
+\begin{itemize}
+	\item Verificación: se construye un conjunto de 10 imágenes de platos compuestos (ensalada mixta, puchero, picada, etc.) con al menos 5 componentes etiquetados cada una. Se verifica que el modelo devuelve $\geq$5 detecciones con confianza $\geq$0,5 en todos los casos.
+	\item Validación: un licenciado en nutrición evalúa los resultados sobre 3 imágenes de platos típicos y confirma que los componentes identificados corresponden visualmente a los alimentos presentes en el plato.
+\end{itemize}
+
+\item \textbf{RF3} --- El modelo de CV debe alcanzar exactitud \textit{top-1} $\geq$ 75\,\% sobre el conjunto de prueba de imágenes locales.
+\begin{itemize}
+	\item Verificación: evaluación del modelo entrenado sobre un \textit{test set} estratificado y no contaminado de imágenes locales etiquetadas. Se calcula la exactitud \textit{top-1} y \textit{top-5} y se registran en el informe técnico (RD3). Se verifica que el valor \textit{top-1} supera el umbral.
+	\item Validación: el director del trabajo revisa la metodología de evaluación, el tamaño del \textit{test set} y la ausencia de contaminación con los datos de entrenamiento, y confirma la validez del resultado.
+\end{itemize}
+
+\item \textbf{RF4} --- El módulo de estimación de porciones debe estimar cantidades con error relativo medio $\leq$ 30\,\%.
+\begin{itemize}
+	\item Verificación: se construye un conjunto de prueba de $\geq$20 imágenes con porciones previamente pesadas en balanza de cocina calibrada. Se calcula el error relativo medio $\overline{|e_r|} = \frac{1}{n}\sum \frac{|\hat{p}_i - p_i|}{p_i}$ y se verifica que sea $\leq$30\,\%.
+	\item Validación: se presentan al director 5 casos de estimación seleccionados aleatoriamente del conjunto de prueba, con imagen, estimación del sistema y valor real de referencia. El director confirma que el procedimiento de medición es reproducible y representativo.
+\end{itemize}
+
+\item \textbf{RF6} --- El sistema debe generar y mostrar un resumen nutricional (calorías, proteínas, grasas y carbohidratos) por comida registrada.
+\begin{itemize}
+	\item Verificación: prueba de integración \textit{end-to-end} con 5 alimentos de referencia presentes en la BD nutricional. Se verifica que el sistema retorna valores numéricos para los cuatro macronutrientes y que coinciden con los de la fuente (tolerancia $\pm$1\,\% por redondeo en punto flotante).
+	\item Validación: un licenciado en nutrición compara el resumen nutricional generado para 3 comidas tipo con los valores de referencia que conoce de su práctica profesional, y confirma que son plausibles y útiles para seguimiento dietético.
+\end{itemize}
+
+\item \textbf{RF7} --- El usuario debe poder consultar su historial nutricional de al menos los últimos 7 días.
+\begin{itemize}
+	\item Verificación: prueba funcional en simulador con registros simulados de 8 días. Se verifica que todos los registros de los últimos 7 días son visibles, correctamente ordenados cronológicamente, y que los registros anteriores a 7 días no se muestran por defecto.
+	\item Validación: en la sesión de prueba de usabilidad, se solicita a un usuario que navegue al historial tras registrar varias comidas. Se observa que accede a sus registros anteriores sin asistencia.
+\end{itemize}
+
+\item \textbf{RF8} --- El usuario debe poder corregir los alimentos identificados por el sistema en caso de reconocimiento incorrecto.
+\begin{itemize}
+	\item Verificación: prueba funcional en simulador que simula una identificación incorrecta. Se verifica que: (a) el usuario puede seleccionar un alimento distinto desde una lista de búsqueda, (b) el registro nutricional se recalcula correctamente, y (c) la corrección queda persistida en el historial.
+	\item Validación: en la sesión de usabilidad, se presenta un caso donde el sistema identifica incorrectamente un alimento. Se observa que el usuario comprende el mecanismo de corrección, puede aplicarlo sin instrucciones y queda satisfecho con el resultado.
+\end{itemize}
+
+\item \textbf{RF10} --- El \textit{pipeline} completo desde la captura hasta la visualización del resultado nutricional debe completarse en $\leq$ 30\,s.
+\begin{itemize}
+	\item Verificación: se instrumenta la app con registro de tiempos entre el \textit{tap} en ``analizar'' y la presentación del resumen nutricional. Se ejecutan 10 mediciones en condiciones de red Wi-Fi estándar (50\,Mbps) y se registran el tiempo promedio y el percentil 90. Ambos deben ser $\leq$30\,s.
+	\item Validación: demostración en vivo ante el director del trabajo con una imagen real de un plato. El director evalúa subjetivamente que la espera es aceptable para un uso cotidiano.
+\end{itemize}
+
+\item \textbf{RI2} --- La captura o selección de la foto del plato debe requerir $\leq$ 3 interacciones del usuario.
+\begin{itemize}
+	\item Verificación: inspección del flujo de navegación en el prototipo. Se cuenta el número de toques desde la pantalla principal hasta la confirmación de la fotografía y se verifica que no supera 3 en ninguno de los dos modos posibles (cámara o biblioteca).
+	\item Validación: en la sesión de usabilidad con tres usuarios, se verifica que ninguno necesita más de 3 interacciones para fotografiar un plato y que ninguno solicita ayuda durante esta acción.
+\end{itemize}
+
+\item \textbf{RReg1} --- El sistema debe tratar los datos personales en conformidad con la Ley 25.326 de Protección de Datos Personales.
+\begin{itemize}
+	\item Verificación: revisión del código fuente de la app y del \textit{backend}. Se verifica que: (a) las imágenes y registros nutricionales se transmiten únicamente mediante HTTPS, (b) no se envían datos personales a servicios de terceros sin consentimiento explícito del usuario, y (c) el usuario puede eliminar la totalidad de su historial desde la interfaz.
+	\item Validación: el director del trabajo revisa las medidas técnicas implementadas y confirma que son coherentes con los requisitos de la ley. Se documenta esta revisión en la memoria del Trabajo Final.
 \end{itemize}
 
 \end{itemize}
-
-Tener en cuenta que en este contexto se pueden mencionar simulaciones, cálculos, revisión de hojas de datos, consulta con expertos, mediciones, etc.  
-
-Las acciones de verificación suelen considerar al entregable como ``caja blanca'', es decir se conoce en profundidad su funcionamiento interno.  
-
-En cambio, las acciones de validación suelen considerar al entregable como ``caja negra'', es decir, que no se conocen los detalles de su funcionamiento interno.
-
-\end{consigna}
 
 \section{15. Procesos de cierre}    
 \label{sec:cierre}
 
-\begin{consigna}{red}
-Establecer las pautas de trabajo para realizar una reunión final de evaluación del proyecto, tal que contemple las siguientes actividades:
-
 \begin{itemize}
-	\item Pautas de trabajo que se seguirán para analizar si se respetó el Plan de Proyecto original:\\
-	 - Indicar quién se ocupará de hacer esto y cuál será el procedimiento a aplicar. 
-	\item Identificación de las técnicas y procedimientos útiles e inútiles que se emplearon, los problemas que surgieron y cómo se solucionaron:\\
-	 - Indicar quién se ocupará de hacer esto y cuál será el procedimiento para dejar registro.
-	\item Indicar quién organizará el acto de agradecimiento a todos los interesados, y en especial al equipo de trabajo y colaboradores:\\
-	  - Indicar esto y quién financiará los gastos correspondientes.
-\end{itemize}
 
-\end{consigna}
+\item \textbf{Análisis de adherencia al Plan de Proyecto original.}
+El responsable del proyecto (\authorname) realizará, en los 15 días posteriores a la defensa oral, una reunión de cierre con el director (\supname). El procedimiento consistirá en contrastar el diagrama de Gantt original con las fechas reales de finalización de cada tarea del WBS, calculando la variación de cronograma (SV = tiempo planificado $-$ tiempo real) para cada grupo de tareas. Se verificará además si el alcance definido en la sección~\ref{sec:alcance} fue respetado, documentando cualquier tarea incorporada o eliminada durante la ejecución. Los resultados de este análisis quedarán registrados como un documento de cierre en el repositorio del proyecto.
+
+\item \textbf{Identificación de técnicas, problemas y lecciones aprendidas.}
+El responsable elaborará un documento de lecciones aprendidas en los 15 días posteriores a la defensa. El documento incluirá:
+\begin{itemize}
+	\item[a)] Lista de herramientas, bibliotecas y enfoques técnicos empleados, con evaluación de su utilidad real (útil / parcialmente útil / no útil) y justificación breve.
+	\item[b)] Descripción de los problemas más significativos que surgieron durante el desarrollo (técnicos, de datos, de cronograma) y cómo fueron resueltos o gestionados.
+	\item[c)] Recomendaciones para futuros trabajos que aborden sistemas similares de reconocimiento de alimentos en contextos locales.
+\end{itemize}
+Este documento quedará como anexo del repositorio de código fuente (sección \path{docs/lecciones_aprendidas.md}) y como parte de la memoria del Trabajo Final.
+
+\item \textbf{Acto de agradecimiento.}
+El responsable del proyecto organizará un encuentro informal (desayuno o almuerzo) de agradecimiento destinado al director del Trabajo Final, a los colaboradores que participaron en la recolección y anotación de imágenes locales, y a los licenciados en nutrición que colaboraron en la validación clínica del sistema. El acto se realizará dentro de los 30 días posteriores a la defensa oral. Los gastos del encuentro serán financiados íntegramente por el responsable del proyecto.
+
+\end{itemize}
 
 \newpage
 \bibliographystyle{ieeetr}
